@@ -10,4 +10,12 @@ public class Proveedor {
 	 * mismo proveedor, se tratan como listas separadas.
 	 * Tengo una coleccion de listas que heredan de ListaPrecios (abstracta).
 	 */
+
+	public Set<ListaPrecios> getListaPrecios() {
+		return listaPrecios;
+	}
+
+	public void setListaPrecios(Set<ListaPrecios> listaPrecios) {
+		this.listaPrecios = listaPrecios;
+	}
 }

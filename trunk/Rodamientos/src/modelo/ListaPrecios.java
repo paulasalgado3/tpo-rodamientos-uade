@@ -1,6 +1,5 @@
 package modelo;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class ListaPrecios implements Comparable {
