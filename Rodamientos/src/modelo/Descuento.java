@@ -9,18 +9,22 @@ public class Descuento {
 	 */
 	private Cliente cliente;
 	private String tipo;
+
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
 	public String getTipo() {
 		return tipo;
 	}
+
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
-	
+
 }
