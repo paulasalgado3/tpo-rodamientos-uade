@@ -8,5 +8,22 @@ public class Cliente {
 	 * empresa. Las condiciones de pago pueden, o no, tener un recargo de
 	 * interés.
 	 */
-	private CondicionPago condicionVenta;
+	private CondicionPago condicionpago;
+	/*También puede otorgar descuentos adicionales a determinados clientes.*/
+	private Descuento descuento;
+	
+	public Descuento getDescuento() {
+		return descuento;
+	}
+	public void setDescuento(Descuento descuento) {
+		this.descuento = descuento;
+	}
+	public CondicionPago getCondicionpago() {
+		return condicionpago;
+	}
+	public void setCondicionpago(CondicionPago condicionpago) {
+		this.condicionpago = condicionpago;
+	}
+	
+	
 }
