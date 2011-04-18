@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.Date;
 
+@SuppressWarnings("unchecked")
 public abstract class ListaPrecios implements Comparable {
 
 	private int numero;
@@ -9,6 +10,7 @@ public abstract class ListaPrecios implements Comparable {
 	private Proveedor proveedor;
 	private String tipo;
 	
+	@SuppressWarnings("deprecation")
 	public int compareTo(Object otraLista) {
 		if (!(otraLista instanceof ListaPrecios)) {
 			throw new ClassCastException("Objeto Invalido para comparar");
