@@ -3,6 +3,7 @@ package modelo;
 import java.io.Serializable;
 import java.util.Set;
 
+@SuppressWarnings("serial")
 public class Rodamiento implements Serializable{
 
 	private int codigo;

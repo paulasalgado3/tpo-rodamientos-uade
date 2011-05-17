@@ -3,6 +3,7 @@ package modelo;
 import java.io.Serializable;
 import java.util.Set;
 
+@SuppressWarnings("serial")
 public class Proveedor implements Serializable{
 
 	private Set<ListaPrecios> listaPrecios;
