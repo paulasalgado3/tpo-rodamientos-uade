@@ -11,6 +11,7 @@ public class Rodamiento implements Serializable{
 	private String marca;
 	private String paisOrigen;
 	private float precioUnitario;
+	private Integer nroSerie;
 	
 	private Set<Rodamiento> equivalentes;
 
@@ -60,5 +61,13 @@ public class Rodamiento implements Serializable{
 
 	public void setEquivalentes(Set<Rodamiento> equivalentes) {
 		this.equivalentes = equivalentes;
+	}
+
+	public Integer getNroSerie() {
+		return nroSerie;
+	}
+
+	public void setNroSerie(Integer nroSerie) {
+		this.nroSerie = nroSerie;
 	}
 }

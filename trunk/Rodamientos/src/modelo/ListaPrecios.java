@@ -2,6 +2,8 @@ package modelo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @SuppressWarnings({ "unchecked", "serial" })
 public abstract class ListaPrecios implements Comparable, Serializable{
@@ -10,6 +12,7 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 	private Date fecha;
 	private Proveedor proveedor;
 	private String tipo;
+	private Set<Item> items = new HashSet<Item>();
 	
 	@SuppressWarnings("deprecation")
 	public int compareTo(Object otraLista) {
@@ -63,5 +66,12 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
+
+	public Set<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(Set<Item> items) {
+		this.items = items;
+	}	
 }
