@@ -1,6 +1,8 @@
 package modelo;
 
-public class Descuento {
+import java.io.Serializable;
+
+public class Descuento implements Serializable{
 
 	/*
 	 * Es política de la empresa efectuar descuentos por pago contado o por pago

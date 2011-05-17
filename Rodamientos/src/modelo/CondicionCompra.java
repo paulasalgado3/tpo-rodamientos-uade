@@ -1,6 +1,8 @@
 package modelo;
 
-public class CondicionCompra {
+import java.io.Serializable;
+
+public class CondicionCompra implements Serializable{
 
 	/*
 	 * contado, y de 30 a 90 días (con o sin interés). Generalmente el proveedor

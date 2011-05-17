@@ -1,6 +1,8 @@
 package modelo;
 
-public class CondicionPago {
+import java.io.Serializable;
+
+public class CondicionPago implements Serializable{
 
 	/*
 	 * Las distintas condiciones de pago son propias a cada cliente, otorgando

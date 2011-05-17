@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public class Rodamiento {
+public class Rodamiento implements Serializable{
 
 	private int codigo;
 	private String caracteristicas;
