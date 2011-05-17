@@ -3,7 +3,7 @@ package modelo;
 import java.io.Serializable;
 import java.util.Date;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({ "unchecked", "serial" })
 public abstract class ListaPrecios implements Comparable, Serializable{
 
 	private int numero;
