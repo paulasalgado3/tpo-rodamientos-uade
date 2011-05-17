@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public class Proveedor {
+public class Proveedor implements Serializable{
 
 	private Set<ListaPrecios> listaPrecios;
 	/*

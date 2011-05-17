@@ -1,6 +1,8 @@
 package modelo;
 
-public class ListaOferta extends ListaPrecios {
+import java.io.Serializable;
+
+public class ListaOferta extends ListaPrecios implements Serializable{
 
 	/*
 	 * Los proveedores publican listas de ofertas donde indican descuentos sobre los ítems.
