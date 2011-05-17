@@ -2,25 +2,39 @@ package generico.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Session;
+
+import util.hibernate.HibernateUtil;
+
 import generico.dao.GenericDAO;
 
 public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 
 	@Override
 	public void delete(Integer id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		
 		
 	}
 
 	@Override
 	public List<T> findAll() {
-		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		
 		return null;
 	}
 
 	@Override
 	public void save(T entidad) {
-		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
 		
+		session.save(entidad);
+		
+		session.getTransaction().commit();
+		session.close();
 	}
 
 }
