@@ -8,6 +8,8 @@ import java.util.Set;
 @SuppressWarnings({ "unchecked", "serial" })
 public abstract class ListaPrecios implements Comparable, Serializable{
 
+	/*Esta es la lista de un proveedor*/
+	
 	private int numero;
 	private Date fecha;
 	private Proveedor proveedor;
