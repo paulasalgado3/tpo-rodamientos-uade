@@ -2,6 +2,7 @@ package generico.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import util.hibernate.HibernateUtil;
@@ -11,19 +12,23 @@ import generico.dao.GenericDAO;
 public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 
 	@Override
-	public void delete(Integer id) {
+	public void delete(T entity) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		
+		session.delete(entity);
 		
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> findAll() {
+	public List<T> findAll(T entity) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.beginTransaction();
-		
-		return null;
+		Query query = session.createQuery("from " + entity.getClass().getName());		
+		return (List<T>)query.list();
 	}
 
 	@Override
@@ -33,6 +38,7 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 		
 		session.save(entidad);
 		
+		session.flush();
 		session.getTransaction().commit();
 		session.close();
 	}
