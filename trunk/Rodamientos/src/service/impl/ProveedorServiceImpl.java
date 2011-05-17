@@ -34,7 +34,7 @@ public class ProveedorServiceImpl extends UnicastRemoteObject implements
 		CondicionCompra condicionCompra = null;
 		
 		proveedor.setCondicionCompra(condicionCompra);
-		proveedorDAO.save(proveedor);
+		proveedorDAO.save(proveedor);//la cond compra se guardar en cascada
 	}
 
 }

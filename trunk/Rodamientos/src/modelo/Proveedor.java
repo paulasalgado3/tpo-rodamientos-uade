@@ -3,6 +3,9 @@ package modelo;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToOne;
+
 @SuppressWarnings("serial")
 public class Proveedor extends Persona implements Serializable{
 
@@ -21,6 +24,7 @@ public class Proveedor extends Persona implements Serializable{
 	public void setListaPrecios(Set<ListaPrecios> listaPrecios) {
 		this.listaPrecios = listaPrecios;
 	}
+	@OneToOne(cascade = CascadeType.ALL)
 	public CondicionCompra getCondicionCompra() {
 		return condicionCompra;
 	}
