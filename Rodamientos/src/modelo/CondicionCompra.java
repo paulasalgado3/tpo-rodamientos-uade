@@ -10,7 +10,6 @@ public class CondicionCompra implements Serializable{
 	 * determina descuentos por pago contado
 	 */
 	private String formaPago;
-	private String plazo;
 	private Proveedor proveedor;
 	
 	public String getFormaPago() {
@@ -19,14 +18,6 @@ public class CondicionCompra implements Serializable{
 
 	public void setFormaPago(String formaPago) {
 		this.formaPago = formaPago;
-	}
-
-	public String getPlazo() {
-		return plazo;
-	}
-
-	public void setPlazo(String plazo) {
-		this.plazo = plazo;
 	}
 
 	public Proveedor getProveedor() {
