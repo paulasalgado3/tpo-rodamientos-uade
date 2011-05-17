@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @SuppressWarnings("serial")
-public class Proveedor implements Serializable{
+public class Proveedor extends Persona implements Serializable{
 
 	private Set<ListaPrecios> listaPrecios;
 	/*

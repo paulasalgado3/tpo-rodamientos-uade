@@ -3,7 +3,7 @@ package modelo;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class Cliente implements Serializable{
+public class Cliente extends Persona implements Serializable{
 
 	/*
 	 * Las distintas condiciones de pago son propias a cada cliente, otorgando
