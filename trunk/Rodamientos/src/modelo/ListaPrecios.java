@@ -10,7 +10,7 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 
 	/*Esta es la lista de un proveedor*/
 	
-	private int numero;
+	private Integer numeroLista;
 	private Date fecha;
 	private Proveedor proveedor;
 	private String tipo;
@@ -28,21 +28,13 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 		 * por la nueva).
 		 * */
 		if(this.getFecha().getDate() == otra.getFecha().getDate()
-				&& this.getNumero() == otra.getNumero()
+				&& this.getNumeroLista().intValue() == otra.getNumeroLista().intValue()
 				&& this.getProveedor().equals(otra.getProveedor())
 				&& this.getTipo().equalsIgnoreCase(otra.getTipo())){
 			
 			return 0;//son iguales
 		}
 		return -1;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
 	}
 
 	public Date getFecha() {
@@ -75,5 +67,13 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 
 	public void setItems(Set<Item> items) {
 		this.items = items;
+	}
+
+	public Integer getNumeroLista() {
+		return numeroLista;
+	}
+
+	public void setNumeroLista(Integer numeroLista) {
+		this.numeroLista = numeroLista;
 	}	
 }
