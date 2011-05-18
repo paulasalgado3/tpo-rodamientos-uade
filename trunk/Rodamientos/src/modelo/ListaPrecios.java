@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@SuppressWarnings({ "unchecked", "serial" })
+@SuppressWarnings({ "serial", "rawtypes" })
 public abstract class ListaPrecios implements Comparable, Serializable{
 
 	/*Esta es la lista de un proveedor*/

@@ -13,6 +13,7 @@ import util.hibernate.HibernateUtil;
 
 public class ListaPreciosDAOImpl extends GenericDAOImpl<ListaPrecios> {
 
+	@SuppressWarnings("unchecked")
 	public List<Object> obtenerItems(Integer nroSerie, String marca, String paisOrigen){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		String hql = "select * from ListaPrecios lp join lp.items i where i.rodamiento.nroSerie = :nroSerie and i.rodamiento.marca = :marca and " +

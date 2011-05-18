@@ -21,13 +21,10 @@ public class ProveedorServiceImpl extends UnicastRemoteObject implements
 		proveedorDAO = new ProveedorDAOImpl();
 	}
 
-	@Override
-	public void agregarProveedor(String nombre, String apellido, Integer dni,
-			String telefono, String formaPago) {
+	public void agregarProveedor(String razonSocial, String cuit, String telefono, String formaPago) {
 		Proveedor proveedor = new Proveedor();
-		proveedor.setApellido(apellido);		
-		proveedor.setDni(dni);
-		proveedor.setNombre(nombre);
+		proveedor.setRazonSocial(razonSocial);
+		proveedor.setCuit(cuit);
 		proveedor.setTelefono(telefono);
 		
 		/*Busco la condicion de compra por forma de pago*/
