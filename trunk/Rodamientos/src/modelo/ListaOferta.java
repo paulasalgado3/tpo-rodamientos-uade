@@ -9,7 +9,7 @@ public class ListaOferta extends ListaPrecios implements Serializable{
 	 * Los proveedores publican listas de ofertas donde indican descuentos sobre los ítems.
 	 * */
 	private float descuento;
-	private Rodamiento rodamiento;
+	private Item item;
 	
 	public float getDescuento() {
 		return descuento;
@@ -17,12 +17,10 @@ public class ListaOferta extends ListaPrecios implements Serializable{
 	public void setDescuento(float descuento) {
 		this.descuento = descuento;
 	}
-	public Rodamiento getRodamiento() {
-		return rodamiento;
+	public Item getItem() {
+		return item;
 	}
-	public void setRodamiento(Rodamiento rodamiento) {
-		this.rodamiento = rodamiento;
-	}
-	
-	
+	public void setItem(Item item) {
+		this.item = item;
+	}	
 }

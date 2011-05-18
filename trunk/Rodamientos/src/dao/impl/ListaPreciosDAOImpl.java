@@ -13,12 +13,12 @@ import util.hibernate.HibernateUtil;
 
 public class ListaPreciosDAOImpl extends GenericDAOImpl<ListaPrecios> {
 
-	public List<Object> obtenerItemsPorCriterios(Integer nroSerie, String marca, String paisOrigen){
+	public List<Object> obtenerItems(Integer nroSerie, String marca, String paisOrigen){
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		String hql = "from ListaPrecios lp join lp.items i where i.rodamiento.nroSerie = :nroSerie and i.rodamiento.marca = :marca and " +
+		String hql = "select * from ListaPrecios lp join lp.items i where i.rodamiento.nroSerie = :nroSerie and i.rodamiento.marca = :marca and " +
 				"i.rodamiento.paisOrigen = :paisOrigen";
 		Query query = session.createQuery(hql);
-		/*Seguro no and..aprendé HQL ladri...*/
+		/*Seguro no anda..aprendé HQL ladri...*/
 		
 		return query.list();
 	}

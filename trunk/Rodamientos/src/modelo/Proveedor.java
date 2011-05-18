@@ -3,9 +3,6 @@ package modelo;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToOne;
-
 @SuppressWarnings("serial")
 public class Proveedor extends Persona implements Serializable{
 
@@ -15,8 +12,9 @@ public class Proveedor extends Persona implements Serializable{
 	 * mismo proveedor, se tratan como listas separadas.
 	 * Tengo una coleccion de listas que heredan de ListaPrecios (abstracta).
 	 */
-	private CondicionCompra condicionCompra;
-	//El proveedor tiene mas de una Condicion de Compra??
+	private Set<CondicionCompra> condicionesCompra;
+	/*Supongo que el proveedor tiene mas de una Condicion de Compra,
+	 * una para cada empresa*/
 	
 	public Set<ListaPrecios> getListaPrecios() {
 		return listaPrecios;
@@ -24,11 +22,10 @@ public class Proveedor extends Persona implements Serializable{
 	public void setListaPrecios(Set<ListaPrecios> listaPrecios) {
 		this.listaPrecios = listaPrecios;
 	}
-	@OneToOne(cascade = CascadeType.ALL)
-	public CondicionCompra getCondicionCompra() {
-		return condicionCompra;
+	public Set<CondicionCompra> getCondicionesCompra() {
+		return condicionesCompra;
 	}
-	public void setCondicionCompra(CondicionCompra condicionCompra) {
-		this.condicionCompra = condicionCompra;
+	public void setCondicionesCompra(Set<CondicionCompra> condicionesCompra) {
+		this.condicionesCompra = condicionesCompra;
 	}
 }
