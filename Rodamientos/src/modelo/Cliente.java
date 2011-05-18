@@ -5,6 +5,7 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Cliente extends Persona implements Serializable{
 
+	private Integer idCliente;
 	/*
 	 * Las distintas condiciones de pago son propias a cada cliente, otorgando
 	 * mayores facilidades de pago a clientes que son de mayor interés a la
@@ -27,6 +28,10 @@ public class Cliente extends Persona implements Serializable{
 	public void setCondicionpago(CondicionPago condicionpago) {
 		this.condicionpago = condicionpago;
 	}
-	
-	
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}	
 }

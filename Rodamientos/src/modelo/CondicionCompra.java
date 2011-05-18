@@ -5,12 +5,16 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class CondicionCompra implements Serializable{
 
-	/*
-	 * contado, y de 30 a 90 días (con o sin interés). Generalmente el proveedor
+	
+	private String formaPago;
+	/* contado, y de 30 a 90 días (con o sin interés). Generalmente el proveedor
 	 * determina descuentos por pago contado
 	 */
-	private String formaPago;
+	
 	private Proveedor proveedor;
+	private Empresa empresa;
+	/*Las condiciones de compra y los descuentos de cada lista de precios 
+	 * son detallados por el proveedor a la empresa en cuestión. */
 	
 	public String getFormaPago() {
 		return formaPago;
@@ -26,5 +30,13 @@ public class CondicionCompra implements Serializable{
 
 	public void setProveedor(Proveedor proveedor) {
 		this.proveedor = proveedor;
+	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 }
