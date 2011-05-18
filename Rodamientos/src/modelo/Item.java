@@ -24,6 +24,4 @@ public class Item {
 	public void setPrecio(Float precio) {
 		this.precio = precio;
 	}
-	
-	
 }

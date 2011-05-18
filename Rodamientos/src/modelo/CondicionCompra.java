@@ -12,7 +12,8 @@ public class CondicionCompra implements Serializable{
 	 */
 	
 	private Proveedor proveedor;
-	private Empresa empresa;
+	//private Empresa empresa;//La empresa es siempre Rodacor
+	
 	/*Las condiciones de compra y los descuentos de cada lista de precios 
 	 * son detallados por el proveedor a la empresa en cuestión. */
 	
@@ -30,13 +31,5 @@ public class CondicionCompra implements Serializable{
 
 	public void setProveedor(Proveedor proveedor) {
 		this.proveedor = proveedor;
-	}
-
-	public Empresa getEmpresa() {
-		return empresa;
-	}
-
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
 	}
 }
