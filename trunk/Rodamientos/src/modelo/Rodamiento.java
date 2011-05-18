@@ -10,9 +10,7 @@ public class Rodamiento implements Serializable{
 	private String caracteristicas;
 	private String marca;
 	private String paisOrigen;
-	private float precioUnitario;
 	private Integer nroSerie;
-	
 	private Set<Rodamiento> equivalentes;
 
 	public int getCodigo() {
@@ -45,14 +43,6 @@ public class Rodamiento implements Serializable{
 
 	public void setPaisOrigen(String paisOrigen) {
 		this.paisOrigen = paisOrigen;
-	}
-
-	public float getPrecioUnitario() {
-		return precioUnitario;
-	}
-
-	public void setPrecioUnitario(float precioUnitario) {
-		this.precioUnitario = precioUnitario;
 	}
 
 	public Set<Rodamiento> getEquivalentes() {
