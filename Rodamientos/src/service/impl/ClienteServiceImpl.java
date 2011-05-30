@@ -23,7 +23,7 @@ public class ClienteServiceImpl extends UnicastRemoteObject implements ClienteSe
 	}
 
 	@Override
-	public void agregarCliente(String nombre, String apellido, int dni,
+	public void agregarCliente(String nombre, String apellido, String dni,
 			String telefono) {
 			Cliente cliente = new Cliente();
 			cliente.setNombre(nombre);

@@ -38,6 +38,7 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 		
 		session.save(entidad);
 		
+		
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
