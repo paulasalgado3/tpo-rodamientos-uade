@@ -14,7 +14,7 @@ public class Cliente implements Serializable{
 	private Integer idCliente;
 	private String nombre;
 	private String apellido;
-	private Integer dni;
+	private String dni;
 	private String telefono;
 	/*
 	 * Las distintas condiciones de pago son propias a cada cliente, otorgando
@@ -40,10 +40,11 @@ public class Cliente implements Serializable{
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public Integer getDni() {
+	
+	public String getDni() {
 		return dni;
 	}
-	public void setDni(Integer dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 	public String getTelefono() {
