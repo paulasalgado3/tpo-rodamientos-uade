@@ -8,7 +8,6 @@ import dao.impl.ClienteDAOImpl;
 
 import modelo.Cliente;
 import modelo.CondicionPago;
-import modelo.Descuento;
 
 import service.ClienteService;
 
@@ -30,7 +29,7 @@ public class ClienteServiceImpl extends UnicastRemoteObject implements ClienteSe
 			cliente.setApellido(apellido);
 			cliente.setDni(dni);
 			cliente.setTelefono(telefono);
-			Descuento descuento = null;
+			Double descuento = null;
 			cliente.setDescuento(descuento);
 			CondicionPago condPago = null;
 			cliente.setCondicionpago(condPago);

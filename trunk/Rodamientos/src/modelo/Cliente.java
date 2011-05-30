@@ -23,9 +23,9 @@ public class Cliente implements Serializable{
 	 * interés.
 	 */
 	
-	private CondicionPago condicionpago;
+	private CondicionPago condicionpago;// = condicionVenta
 	/*También puede otorgar descuentos adicionales a determinados clientes.*/
-	private Descuento descuento;
+	private Double descuento;
 	
 	
 	public String getNombre() {
@@ -53,12 +53,6 @@ public class Cliente implements Serializable{
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public Descuento getDescuento() {
-		return descuento;
-	}
-	public void setDescuento(Descuento descuento) {
-		this.descuento = descuento;
-	}
 	public CondicionPago getCondicionpago() {
 		return condicionpago;
 	}
@@ -73,5 +67,11 @@ public class Cliente implements Serializable{
 	}
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
+	}
+	public Double getDescuento() {
+		return descuento;
+	}
+	public void setDescuento(Double descuento) {
+		this.descuento = descuento;
 	}	
 }

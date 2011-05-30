@@ -14,6 +14,8 @@ public class Proveedor implements Serializable{
 	private String cuit;
 	private String telefono;
 	private Set<ListaPrecios> listaPrecios;
+	
+	
 	/*
 	 * Independientemente que un conjunto de listas de precios pertenezcan a un
 	 * mismo proveedor, se tratan como listas separadas.

@@ -12,9 +12,12 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 	
 	private Integer numeroLista;
 	private Date fecha;
+	//agrega vigencia
 	private Proveedor proveedor;
 	private String tipo;
 	private Set<Item> items = new HashSet<Item>();
+	private Double descuento;
+	//descuento por lista de precio, no por item
 	
 	@SuppressWarnings("deprecation")
 	public int compareTo(Object otraLista) {
@@ -75,5 +78,13 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 
 	public void setNumeroLista(Integer numeroLista) {
 		this.numeroLista = numeroLista;
-	}	
+	}
+
+	public Double getDescuento() {
+		return descuento;
+	}
+
+	public void setDescuento(Double descuento) {
+		this.descuento = descuento;
+	}
 }
