@@ -17,7 +17,7 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 	private String tipo;
 	private Set<Item> items = new HashSet<Item>();
 	private Double descuento;
-	//descuento por lista de precio, no por item
+	//descuento por lista de precio, no por item.
 	
 	@SuppressWarnings("deprecation")
 	public int compareTo(Object otraLista) {
