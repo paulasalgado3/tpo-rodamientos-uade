@@ -11,7 +11,8 @@ public class HibernateUtil {
 	        try
 	        {
 	        	 AnnotationConfiguration cfg = new AnnotationConfiguration();
-	         	/*Agregar las clases con anotaciones*/	        	 
+	         	/*Agregar las clases con anotaciones*/	
+//	        	 config.addAnnotatedClass(nombreDeClase.class);
 	             sessionFactory = cfg.buildSessionFactory();
 	        }
 	        catch (Throwable ex)
