@@ -59,4 +59,10 @@ public class Proveedor implements Serializable{
 	public void setCondicionesCompra(Set<CondicionCompra> condicionesCompra) {
 		this.condicionesCompra = condicionesCompra;
 	}
+	public Proveedor(String razonSocial, String cuit, String telefono) {
+		super();
+		this.razonSocial = razonSocial;
+		this.cuit = cuit;
+		this.telefono = telefono;
+	}
 }

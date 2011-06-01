@@ -1,3 +1,4 @@
+
 package service.impl;
 
 import java.rmi.RemoteException;
@@ -21,11 +22,8 @@ public class ProveedorServiceImpl extends UnicastRemoteObject implements
 		proveedorDAO = new ProveedorDAOImpl();
 	}
 
-	public void agregarProveedor(String razonSocial, String cuit, String telefono, String formaPago) {
-		Proveedor proveedor = new Proveedor();
-		proveedor.setRazonSocial(razonSocial);
-		proveedor.setCuit(cuit);
-		proveedor.setTelefono(telefono);
+	public void agregarProveedor(String razonSocial, String cuit, String telefono) {
+		Proveedor proveedor = new Proveedor(razonSocial, cuit, telefono);
 		
 		/*Busco la condicion de compra por forma de pago*/
 		CondicionCompra condicionCompra = null;
