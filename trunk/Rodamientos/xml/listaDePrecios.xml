@@ -1,5 +1,7 @@
-<ListasPrecio proveedor="Prov1">
-	<Lista tipo="Oferta">
+<ListasPrecio proveedor="123456789">
+<!-- Lista de precios normal -->
+	<Lista tipo="Normal", fecha="03062011",vigencia="60">
+		<Descuento valor="0"></Descuento>
 		<Item id="I001">
 			<Nombre>Rodamiento 1</Nombre>
 			<Cantidad>100</Cantidad>
@@ -25,8 +27,6 @@
 			<Cantidad>500</Cantidad>
 			<Precio>25.79</Precio>
 		</Item>
-	</Lista>
-	<Lista tipo="PrecioDeLista">
 		<Item id="I006">
 			<Nombre>Rodamiento 6</Nombre>
 			<Cantidad>25</Cantidad>
@@ -40,6 +40,60 @@
 		<Item id="I008">
 			<Nombre>Rodamiento 8</Nombre>
 			<Cantidad>100</Cantidad>
+			<Precio>27.31</Precio>
+		</Item>
+		<Item id="I009">
+			<Nombre>Rodamiento 9</Nombre>
+			<Cantidad>75</Cantidad>
+			<Precio>20.19</Precio>
+		</Item>
+		<Item id="I010">
+			<Nombre>Rodamiento 10</Nombre>
+			<Cantidad>23</Cantidad>
+			<Precio>2.79</Precio>
+		</Item>
+	</Lista>
+	<!-- Ahora meto listas de ofertas varias -->
+	<Lista tipo="Ofertas", fecha="03062011",vigencia="60">
+		<Descuento valor="0.25"></Descuento>
+		<Item id="I001">
+			<Nombre>Rodamiento 1</Nombre>
+			<Cantidad>10</Cantidad>
+			<Precio>75.30</Precio>
+		</Item>
+		<Item id="I002">
+			<Nombre>Rodamiento 2</Nombre>
+			<Cantidad>23</Cantidad>
+			<Precio>33.40</Precio>
+		</Item>
+		<Item id="I003">
+			<Nombre>Rodamiento 3</Nombre>
+			<Cantidad>341</Cantidad>
+			<Precio>102.31</Precio>
+		</Item>
+		<Item id="I004">
+			<Nombre>Rodamiento 4</Nombre>
+			<Cantidad>231</Cantidad>
+			<Precio>70.32</Precio>
+		</Item>
+		<Item id="I005">
+			<Nombre>Rodamiento 5</Nombre>
+			<Cantidad>500</Cantidad>
+			<Precio>25.79</Precio>
+		</Item>
+		<Item id="I006">
+			<Nombre>Rodamiento 6</Nombre>
+			<Cantidad>25</Cantidad>
+			<Precio>30</Precio>
+		</Item>
+		<Item id="I007">
+			<Nombre>Rodamiento 7</Nombre>
+			<Cantidad>20</Cantidad>
+			<Precio>10</Precio>
+		</Item>
+		<Item id="I008">
+			<Nombre>Rodamiento 8</Nombre>
+			<Cantidad>34</Cantidad>
 			<Precio>27.31</Precio>
 		</Item>
 		<Item id="I009">
