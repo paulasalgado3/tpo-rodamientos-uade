@@ -1,6 +1,6 @@
 package modelo;
 
-public class Oferta {
+public class Oferta {//que onda esta clase? sirve de algo?
 
 	private Item item;
 	private Float descuento;

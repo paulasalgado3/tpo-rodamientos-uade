@@ -12,12 +12,11 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 	
 	private Integer numeroLista;
 	private Date fecha;
-	//agrega vigencia
+	private Integer vigencia;
 	private Proveedor proveedor;
-	private String tipo;
+	private String tipo;//Oferta - Normal - etc.
 	private Set<Item> items = new HashSet<Item>();
-	private Double descuento;
-	//descuento por lista de precio, no por item.
+	private Double descuento;//descuento por lista de precio, no por item.
 	
 	@SuppressWarnings("deprecation")
 	public int compareTo(Object otraLista) {
@@ -75,7 +74,14 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 	public Integer getNumeroLista() {
 		return numeroLista;
 	}
+	
+	public Integer getVigencia() {
+		return vigencia;
+	}
 
+	public void setVigencia(Integer vigencia) {
+		this.vigencia = vigencia;
+	}
 	public void setNumeroLista(Integer numeroLista) {
 		this.numeroLista = numeroLista;
 	}
