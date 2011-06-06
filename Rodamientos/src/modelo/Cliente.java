@@ -2,6 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "clientes")
 public class Cliente implements Serializable{
 
-	private Integer idCliente;
+	private Integer id;
 	private String nombre;
 	private String apellido;
 	private String dni;
@@ -30,11 +31,12 @@ public class Cliente implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Integer getIdCliente() {
-		return idCliente;
+	@Column(name = "id_cliente")
+	public Integer getId() {
+		return id;
 	}
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getNombre() {
 		return nombre;

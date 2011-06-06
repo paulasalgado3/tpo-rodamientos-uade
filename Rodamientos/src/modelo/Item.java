@@ -1,7 +1,19 @@
 package modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "items")
 public class Item {
 
+	private Integer id;
 	private ListaPrecios listaPrecios;
 	private Rodamiento rodamiento;
 	private Float precio;
@@ -10,6 +22,18 @@ public class Item {
 	 * si el precio es el mejor, pero no alcanza la cantidad, compro estos y sigo con el siguiente
 	 * item por mejor precio.*/
 	
+	@Id
+	@Column(name = "id_item")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "id_lista_precio")
 	public ListaPrecios getListaPrecios() {
 		return listaPrecios;
 	}
@@ -33,5 +57,5 @@ public class Item {
 	}
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
-	}
+	}	
 }
