@@ -6,9 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @SuppressWarnings("serial")
+@Table(name = "clientes")
 public class Cliente implements Serializable{
 
 	private Integer idCliente;
@@ -16,6 +18,9 @@ public class Cliente implements Serializable{
 	private String apellido;
 	private String dni;
 	private String telefono;
+	private CondicionPago condicionpago;// = condicionVenta
+	/*También puede otorgar descuentos adicionales a determinados clientes.*/
+	private Double descuento;
 	/*
 	 * Las distintas condiciones de pago son propias a cada cliente, otorgando
 	 * mayores facilidades de pago a clientes que son de mayor interés a la
@@ -23,11 +28,14 @@ public class Cliente implements Serializable{
 	 * interés.
 	 */
 	
-	private CondicionPago condicionpago;// = condicionVenta
-	/*También puede otorgar descuentos adicionales a determinados clientes.*/
-	private Double descuento;
-	
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -58,15 +66,6 @@ public class Cliente implements Serializable{
 	}
 	public void setCondicionpago(CondicionPago condicionpago) {
 		this.condicionpago = condicionpago;
-	}
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Integer getIdCliente() {
-		return idCliente;
-	}
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
 	}
 	public Double getDescuento() {
 		return descuento;
