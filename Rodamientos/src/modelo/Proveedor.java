@@ -4,16 +4,16 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Entity
 @SuppressWarnings("serial")
 public class Proveedor implements Serializable{
 
+	private Integer id;
 	private String razonSocial;
 	private String cuit;
 	private String telefono;
-	private Set<ListaPrecios> listaPrecios;
+	//private Set<ListaPrecios> listaPrecios;
 	
 	
 	/*
@@ -26,8 +26,11 @@ public class Proveedor implements Serializable{
 	 * una para cada empresa*/
 	
 	
-	public Set<ListaPrecios> getListaPrecios() {
-		return listaPrecios;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getRazonSocial() {
 		return razonSocial;
@@ -36,7 +39,6 @@ public class Proveedor implements Serializable{
 		this.razonSocial = razonSocial;
 	}
 	
-	@Id
 	public String getCuit() {
 		return cuit;
 	}
@@ -50,9 +52,15 @@ public class Proveedor implements Serializable{
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+	/*
+	public Set<ListaPrecios> getListaPrecios() {
+		return listaPrecios;
+	}
 	public void setListaPrecios(Set<ListaPrecios> listaPrecios) {
 		this.listaPrecios = listaPrecios;
 	}
+	*/
+	
 	public Set<CondicionCompra> getCondicionesCompra() {
 		return condicionesCompra;
 	}
@@ -65,4 +73,5 @@ public class Proveedor implements Serializable{
 		this.cuit = cuit;
 		this.telefono = telefono;
 	}
+	
 }
