@@ -3,17 +3,24 @@ package modelo;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity
 @SuppressWarnings("serial")
+@Entity
+@Table(name = "proveedores")
 public class Proveedor implements Serializable{
 
 	private Integer id;
 	private String razonSocial;
 	private String cuit;
 	private String telefono;
-	//private Set<ListaPrecios> listaPrecios;
+	private Set<ListaPrecios> listaPrecios;
 	
 	
 	/*
@@ -25,7 +32,9 @@ public class Proveedor implements Serializable{
 	/*Supongo que el proveedor tiene mas de una Condicion de Compra,
 	 * una para cada empresa*/
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_proveedor")
 	public Integer getId() {
 		return id;
 	}
@@ -52,14 +61,14 @@ public class Proveedor implements Serializable{
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	/*
+	
+	@OneToMany(mappedBy = "proveedor")
 	public Set<ListaPrecios> getListaPrecios() {
 		return listaPrecios;
 	}
 	public void setListaPrecios(Set<ListaPrecios> listaPrecios) {
 		this.listaPrecios = listaPrecios;
 	}
-	*/
 	
 	public Set<CondicionCompra> getCondicionesCompra() {
 		return condicionesCompra;

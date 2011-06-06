@@ -5,11 +5,23 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 @SuppressWarnings({ "serial", "rawtypes" })
+@Entity
+@Table(name = "listas_precios")
 public abstract class ListaPrecios implements Comparable, Serializable{
 
 	/*Esta es la lista de un proveedor*/
-	
+	private Integer id;
 	private Integer numeroLista;
 	private Date fecha;
 	private Integer vigencia;
@@ -17,6 +29,18 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 	private String tipo;//Oferta - Normal - etc.
 	private Set<Item> items = new HashSet<Item>();
 	private Double descuento;//descuento por lista de precio, no por item.
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_lista_precio")
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 	@SuppressWarnings("deprecation")
 	public int compareTo(Object otraLista) {
@@ -47,6 +71,8 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 		this.fecha = fecha;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "id_proveedor")
 	public Proveedor getProveedor() {
 		return proveedor;
 	}
@@ -63,6 +89,7 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 		this.tipo = tipo;
 	}
 
+	@OneToMany(mappedBy = "listaPrecios")
 	public Set<Item> getItems() {
 		return items;
 	}
