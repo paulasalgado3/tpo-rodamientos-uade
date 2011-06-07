@@ -5,5 +5,4 @@ import generico.dao.GenericDAO;
 
 public interface ClienteDAO extends GenericDAO<Cliente>{
 	Cliente findByDni(String dni);
-
 }

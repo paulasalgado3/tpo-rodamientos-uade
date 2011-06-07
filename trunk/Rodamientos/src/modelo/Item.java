@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -41,6 +42,9 @@ public class Item {
 	public void setListaPrecios(ListaPrecios listaPrecios) {
 		this.listaPrecios = listaPrecios;
 	}
+	
+	@OneToOne
+	@JoinColumn(name = "id_rodamiento")
 	public Rodamiento getRodamiento() {
 		return rodamiento;
 	}

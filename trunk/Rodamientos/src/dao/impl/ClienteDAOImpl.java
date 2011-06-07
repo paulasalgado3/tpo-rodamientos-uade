@@ -20,5 +20,4 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDA
 		
 		return (Cliente)query.uniqueResult();
 	}
-
 }

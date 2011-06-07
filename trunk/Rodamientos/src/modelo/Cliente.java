@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -64,6 +66,8 @@ public class Cliente implements Serializable{
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+	@OneToOne
+	@JoinColumn(name = "id_condicion")
 	public CondicionPago getCondicionpago() {
 		return condicionpago;
 	}
