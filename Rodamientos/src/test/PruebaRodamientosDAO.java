@@ -22,6 +22,7 @@ public class PruebaRodamientosDAO {
 		rodamientoDAO.save(rodamiento);
 		System.out.println("Guardado rodamiento codigo " + rodamiento.getCodigo());
 		*/
+		
 	}
 
 }

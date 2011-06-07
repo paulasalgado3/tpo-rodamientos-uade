@@ -19,8 +19,11 @@ public class PruebaListaPreciosDAO {
 		*/
 		
 		//Busco por numero de lista
+		/*
 		ListaPrecios lp2 = lpDAO.findByNumber(new Integer(123456));
 		System.out.println("ID de la lista obtenida: " + lp2.getId());
+		*/
+		
 	}
 
 }
