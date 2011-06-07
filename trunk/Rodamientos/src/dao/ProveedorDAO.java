@@ -5,4 +5,5 @@ import modelo.Proveedor;
 
 public interface ProveedorDAO extends GenericDAO<Proveedor> {
 
+	Proveedor findByCuit(String cuit);
 }
