@@ -18,11 +18,11 @@ import javax.persistence.Table;
 @SuppressWarnings({ "serial", "rawtypes" })
 @Entity
 @Table(name = "listas_precios")
-public abstract class ListaPrecios implements Comparable, Serializable{
+public class ListaPrecios implements Comparable, Serializable{
 
 	/*Esta es la lista de un proveedor*/
 	private Integer id;
-	private Integer numeroLista;
+	private Integer numeroLista;//Podría ser un String tmb..
 	private Date fecha;
 	private Integer vigencia;
 	private Proveedor proveedor;
@@ -38,6 +38,7 @@ public abstract class ListaPrecios implements Comparable, Serializable{
 		return id;
 	}
 
+	@SuppressWarnings("unused")
 	private void setId(Integer id) {
 		this.id = id;
 	}

@@ -20,20 +20,25 @@ public class PruebaClienteDAO {
 		ClienteDAO clienteDAO = new ClienteDAOImpl();
 		/*
 		Cliente cliente = new Cliente();
-		cliente.setApellido("Max");
-		cliente.setNombre("Power");
+		cliente.setApellido("Power");
+		cliente.setNombre("Max");
 		cliente.setDni("99999999");
 		
 		clienteDAO.save(cliente);
 		System.out.println("Creó al cliente " + cliente.getNombre());
 		*/
 		
-		
+		//Listo todos
 		/*
 		List<Cliente> clientes = clienteDAO.findAll(Cliente.class);
 		System.out.println(clientes.size());
 		*/
 		
+		//busco por dni
+		/*
+		Cliente cliente = clienteDAO.findByDni("99999999");
+		System.out.println(cliente.getNombre() + " " +cliente.getApellido());
+		*/
 	}
 
 }
