@@ -38,7 +38,8 @@ public class Proveedor implements Serializable{
 	public Integer getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	@SuppressWarnings("unused")
+	private void setId(Integer id) {
 		this.id = id;
 	}
 	public String getRazonSocial() {
@@ -81,6 +82,8 @@ public class Proveedor implements Serializable{
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
 		this.telefono = telefono;
+	}
+	public Proveedor() {
 	}
 	
 }
