@@ -2,6 +2,7 @@ package util.hibernate;
 
 import modelo.Cliente;
 import modelo.CondicionCompra;
+import modelo.CondicionPago;
 import modelo.Item;
 import modelo.ListaPrecios;
 import modelo.Proveedor;
@@ -20,6 +21,7 @@ public class HibernateUtil {
 	        	 AnnotationConfiguration cfg = new AnnotationConfiguration();
 	        	 cfg.addAnnotatedClass(Cliente.class);
 	        	 cfg.addAnnotatedClass(CondicionCompra.class);
+	        	 cfg.addAnnotatedClass(CondicionPago.class);
 	        	 cfg.addAnnotatedClass(Item.class);
 	        	 cfg.addAnnotatedClass(ListaPrecios.class);
 	        	 cfg.addAnnotatedClass(Proveedor.class);
