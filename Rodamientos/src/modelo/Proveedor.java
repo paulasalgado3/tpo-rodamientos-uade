@@ -69,7 +69,7 @@ public class Proveedor implements Serializable{
 	public void setListaPrecios(Set<ListaPrecios> listaPrecios) {
 		this.listaPrecios = listaPrecios;
 	}
-	
+	@OneToMany(mappedBy = "proveedor")
 	public Set<CondicionCompra> getCondicionesCompra() {
 		return condicionesCompra;
 	}
