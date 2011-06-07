@@ -6,6 +6,6 @@ public interface GenericDAO<T> {
 
 	void save(T entidad);
 	void delete(T entity);
-	List<T> findAll(T entity);
+	List<T> findAll(Class clazz);
 	
 }

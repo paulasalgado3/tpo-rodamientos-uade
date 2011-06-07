@@ -25,9 +25,9 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> findAll(T entity) {
+	public List<T> findAll(Class clazz) {//lo voy a cambiar para no pasarle el parametro
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("from " + entity.getClass().getName());		
+		Query query = session.createQuery("from " +  clazz.getName());		
 		return (List<T>)query.list();
 	}
 

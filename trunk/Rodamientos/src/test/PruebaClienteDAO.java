@@ -1,5 +1,7 @@
 package test;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import util.hibernate.HibernateUtil;
@@ -14,20 +16,24 @@ public class PruebaClienteDAO {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.getTransaction().begin();
 		
 		ClienteDAO clienteDAO = new ClienteDAOImpl();
+		/*
 		Cliente cliente = new Cliente();
-		cliente.setApellido("Power");
-		cliente.setNombre("Max");
+		cliente.setApellido("Max");
+		cliente.setNombre("Power");
 		cliente.setDni("99999999");
 		
 		clienteDAO.save(cliente);
-		
-		session.getTransaction().commit();
-		session.close();
 		System.out.println("Creó al cliente " + cliente.getNombre());
+		*/
+		
+		
+		/*
+		List<Cliente> clientes = clienteDAO.findAll(Cliente.class);
+		System.out.println(clientes.size());
+		*/
+		
 	}
 
 }
