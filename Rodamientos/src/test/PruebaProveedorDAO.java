@@ -21,11 +21,13 @@ public class PruebaProveedorDAO {
 		proveedorDAO.save(proveedor);
 		*/
 		
+		//Listo todos
 		/*
 		List<Proveedor> proveedores = proveedorDAO.findAll(Proveedor.class);
 		System.out.println(proveedores.size());
 		*/
 		
+		//busco por cuit
 		Proveedor p = proveedorDAO.findByCuit("20-34845905-9");
 		System.out.println(p.getRazonSocial());
 	}
