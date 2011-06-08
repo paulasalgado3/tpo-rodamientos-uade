@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -90,7 +91,8 @@ public class ListaPrecios implements Comparable, Serializable{
 		this.tipo = tipo;
 	}
 
-	@OneToMany(mappedBy = "listaPrecios")
+	//si borro la lista, q borre todos los items en cascada
+	@OneToMany(mappedBy = "listaPrecios", cascade = CascadeType.ALL)
 	public Set<Item> getItems() {
 		return items;
 	}
