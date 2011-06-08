@@ -1,5 +1,6 @@
 package modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,7 +44,8 @@ public class Item {
 		this.listaPrecios = listaPrecios;
 	}
 	
-	@OneToOne
+	//si guardo el item, q guarde el rodamiento si no existe (sólo guardar en cascada).
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "id_rodamiento")
 	public Rodamiento getRodamiento() {
 		return rodamiento;
