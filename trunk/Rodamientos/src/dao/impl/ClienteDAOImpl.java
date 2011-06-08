@@ -30,6 +30,7 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDA
 		}else {
 			System.out.println("No existe un cliente con ese id");
 		}
+		session.close();
 		
 	}
 }

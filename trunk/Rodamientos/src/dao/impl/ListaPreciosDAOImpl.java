@@ -35,4 +35,18 @@ public class ListaPreciosDAOImpl extends GenericDAOImpl<ListaPrecios> implements
 		
 		return (ListaPrecios) query.uniqueResult();
 	}
+	@Override
+	public void delete(Integer id){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		ListaPrecios lp = (ListaPrecios)session.get(ListaPrecios.class, id);
+		if(lp != null){
+			super.delete(lp);
+			System.out.println("Eliminada lista numero " + lp.getNumeroLista());
+		}else{
+			System.out.println("No existe ninguna lista con id = " + id);
+		}
+		session.getTransaction().commit();
+		session.close();
+	}
 }

@@ -59,6 +59,7 @@ public class PruebaListaPreciosDAO {
 		*/
 		
 		//Elimino la lista
+		//lpDAO.delete(1); //not funking, por el tema de la sesion de mierda... para esto sirve spring tmb!
 		
 	}
 
