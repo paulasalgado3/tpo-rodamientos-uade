@@ -12,7 +12,7 @@ import generico.dao.GenericDAO;
 public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 
 	@Override
-	public void delete(T entity) {
+	public void delete(T entity) {//tengo que cambiarlo para borrar pasando sólo el id.
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		
@@ -36,8 +36,8 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		
-		session.save(entidad);
-		
+		session.persist(entidad);
+		/*Si uso save(entidad), no funciona CascadeType.PERSIST. Ver relación ítem - rodamiento.*/
 		
 		session.flush();
 		session.getTransaction().commit();

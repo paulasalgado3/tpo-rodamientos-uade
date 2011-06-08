@@ -39,6 +39,9 @@ public class PruebaClienteDAO {
 		Cliente cliente = clienteDAO.findByDni("99999999");
 		System.out.println(cliente.getNombre() + " " +cliente.getApellido());
 		*/
+		
+		//Elimino un cliente
+		//clienteDAO.delete(1);
 	}
 
 }

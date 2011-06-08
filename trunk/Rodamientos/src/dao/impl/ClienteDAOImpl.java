@@ -20,4 +20,16 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDA
 		
 		return (Cliente)query.uniqueResult();
 	}
+	@Override
+	public void delete(Integer id) {//tiene qe volar, heredar usando generics.
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Cliente cliente = (Cliente)session.get(Cliente.class, id);
+		if(cliente != null){
+			super.delete(cliente);
+			System.out.println("Borrado cliente " + cliente.getNombre() + " " + cliente.getApellido());
+		}else {
+			System.out.println("No existe un cliente con ese id");
+		}
+		
+	}
 }
