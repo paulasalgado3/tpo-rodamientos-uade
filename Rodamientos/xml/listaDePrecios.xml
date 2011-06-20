@@ -1,7 +1,10 @@
 <ListasPrecio proveedor="123456789">
 <!-- Lista de precios normal -->
-	<Lista tipo="Normal", fecha="03062011",vigencia="60", numero="001">
-		<Descuento valor="0"></Descuento>
+	<Lista tipo="Normal">
+	 	<Fecha>03/06/2011</Fecha>
+	 	<Vigencia>60</Vigencia>
+	 	<Numero>001</Numero>
+		<Descuento>0</Descuento>
 		<Item id="I001">
 			<Origen>Argentina</Origen>
 			<Marca>Rodamiento 1</Marca>
@@ -64,8 +67,11 @@
 		</Item>
 	</Lista>
 	<!-- Ahora meto listas de ofertas varias -->
-	<Lista tipo="Ofertas", fecha="03062011",vigencia="60", numero="002">
-		<Descuento valor="0.25"></Descuento>
+	<Lista tipo="Ofertas">
+		<Fecha>03/06/2011</Fecha>
+	 	<Vigencia>30</Vigencia>
+	 	<Numero>002</Numero>
+		<Descuento>0.25</Descuento>
 		<Item id="I001">
 			<Origen>Argentina</Origen>
 			<Marca>Rodamiento 1</Marca>
