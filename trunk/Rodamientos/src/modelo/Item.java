@@ -16,6 +16,7 @@ import javax.persistence.Table;
 public class Item {
 
 	private Integer id;
+	private String idItem;
 	private ListaPrecios listaPrecios;
 	private Rodamiento rodamiento;
 	private Float precio;
@@ -33,6 +34,13 @@ public class Item {
 	@SuppressWarnings("unused")
 	private void setId(Integer id) {
 		this.id = id;
+	}
+	@Column(name = "nroItem")
+	public String getIdItem() {
+		return idItem;
+	}
+	public void setIdItem(String idItem) {
+		this.idItem = idItem;
 	}
 	
 	@ManyToOne

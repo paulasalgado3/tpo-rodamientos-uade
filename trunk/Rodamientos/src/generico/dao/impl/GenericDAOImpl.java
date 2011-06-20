@@ -28,8 +28,9 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 	public List<T> findAll(Class clazz) {//lo voy a cambiar para no pasarle el parametro
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("from " +  clazz.getName());
+		List<T> lista =(List<T>)query.list();
 		session.close();
-		return (List<T>)query.list();
+		return lista;
 	}
 
 	@Override

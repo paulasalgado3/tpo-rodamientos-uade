@@ -18,9 +18,10 @@ public class ProveedorDAOImpl extends GenericDAOImpl<Proveedor> implements
 		String hql = "from Proveedor p where p.cuit = :cuit";
 		Query query = session.createQuery(hql);
 		query.setParameter("cuit", cuit);
+		Proveedor p = (Proveedor) query.uniqueResult();
 		session.close();
 		
-		return (Proveedor) query.uniqueResult();
+		return p;
 	}
 
 }
