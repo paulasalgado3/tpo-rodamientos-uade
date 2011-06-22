@@ -4,3 +4,10 @@ para el que hizo los dao, supongo q mauro, hay alguna forma de levantar UN prove
 cuit??
 bueh, tengo un problemilla, hasta que no esté andando hibernate no voy a poder
 avanzar mucho con el xml de la lista de precios, porq tiene q levantar cosas de la base...
+
+Eduardo: Gente, tengo una duda, ahora me estaba por poner a hacer las partes de la oficina de ventas
+(las ventanas que vamos a precisar, los controladores, etc), y tengo una duda respecto al tema del
+Proyecto, ahora tenemos CasaCentral, ¿podemos tener otro proyecto adentro del repo (diga OficinaVentas)?
+o tenemos si o si que tener otro Repositorio separado?
+Les consulto porque tengo miedo de crear el otro proyecto y hacer macana, o crashear este.
+
