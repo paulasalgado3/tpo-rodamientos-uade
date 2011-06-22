@@ -14,6 +14,9 @@ import swing.controladores.ControladorAltaProveedor;
 @SuppressWarnings("serial")
 public class AltaProveedorFrame extends JFrame {
 
+	private final int anchoVentana = 400;
+	private final int altoVentana = 200;
+	
 	private JLabel lblRazonSocial;
 	private JTextField txtRazonSocial;
 	private JLabel lblCuit;
@@ -68,6 +71,7 @@ public class AltaProveedorFrame extends JFrame {
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
+		this.setSize(anchoVentana, altoVentana);
 		this.setVisible(true);
 	}
 	
