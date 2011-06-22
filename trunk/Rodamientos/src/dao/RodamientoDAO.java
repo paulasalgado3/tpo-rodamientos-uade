@@ -5,4 +5,6 @@ import modelo.Rodamiento;
 
 public interface RodamientoDAO extends GenericDAO<Rodamiento> {
 
+	Rodamiento findByCodigo(Integer codigo);
+
 }
