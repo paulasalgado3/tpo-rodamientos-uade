@@ -23,6 +23,10 @@ public class PruebaRodamientosDAO {
 		System.out.println("Guardado rodamiento codigo " + rodamiento.getCodigo());
 		*/
 		
+		//Bùsqueda por codigo
+		Rodamiento r = rodamientoDAO.findByCodigo(new Integer(123));
+		System.out.println("Cod " + r.getCodigo()+ ", Marca: " + r.getMarca());
+		
 	}
 
 }
