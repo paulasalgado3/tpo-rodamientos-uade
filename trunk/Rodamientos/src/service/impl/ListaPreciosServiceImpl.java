@@ -16,7 +16,7 @@ public class ListaPreciosServiceImpl extends UnicastRemoteObject implements
 
 	ListaPreciosDAO listaPreciosDAO = new ListaPreciosDAOImpl();
 	
-	protected ListaPreciosServiceImpl() throws RemoteException {
+	public ListaPreciosServiceImpl() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
