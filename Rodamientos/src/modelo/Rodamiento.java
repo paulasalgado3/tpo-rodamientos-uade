@@ -78,4 +78,9 @@ public class Rodamiento implements Serializable{
 	public void setNroSerie(Integer nroSerie) {
 		this.nroSerie = nroSerie;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.marca+this.nroSerie+this.id;
+	}
 }
