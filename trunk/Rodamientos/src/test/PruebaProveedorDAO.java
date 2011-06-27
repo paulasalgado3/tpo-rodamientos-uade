@@ -16,8 +16,8 @@ public class PruebaProveedorDAO {
 		
 		Proveedor proveedor = new Proveedor();
 		proveedor.setCuit("123456789");
-		proveedor.setRazonSocial("Cancela S.A.");
-		proveedor.setTelefono("0800-de-repente");
+		proveedor.setRazonSocial("Razon Social SA");
+		proveedor.setTelefono("0800-666-1111");
 		//proveedorDAO.save(proveedor);
 		
 		
