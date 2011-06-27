@@ -2,6 +2,7 @@ package service.impl;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 import modelo.Item;
 import service.ListaPreciosService;
@@ -21,10 +22,10 @@ public class ListaPreciosServiceImpl extends UnicastRemoteObject implements
 	}
 	
 	@Override
-	public Item comparativaPrecios(Integer nroSerie, String marca, String paisOrigen, String caracteristicas) throws RemoteException{
+	public Item obtenerItemPorMejorPrecio(Integer nroSerie, List<String> marcas, String paisOrigen, String caracteristicas) throws RemoteException{
 		/*-	Mejor precio, características del rodamiento, marca, país de origen y lista del proveedor.*/
 		ItemDAOImpl itemDAO = new ItemDAOImpl();
-		return itemDAO.obtenerItems(nroSerie, marca, paisOrigen);
+		return itemDAO.obtenerItemPorMejorPrecio(nroSerie, marcas, paisOrigen);
 		
 	}
 

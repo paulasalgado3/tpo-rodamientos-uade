@@ -2,13 +2,14 @@ package service;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 import modelo.Item;
 
 public interface ListaPreciosService extends Remote {
 
-	Item comparativaPrecios(Integer nroSerie, String marca, String paisOrigen,
-			String caracteristicas) throws RemoteException;
+	Item obtenerItemPorMejorPrecio(Integer nroSerie, List<String> marcas,
+			String paisOrigen, String caracteristicas) throws RemoteException;
 
 
 }
