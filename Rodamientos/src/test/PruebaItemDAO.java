@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dao.ItemDAO;
 import dao.impl.ItemDAOImpl;
 import modelo.Item;
@@ -14,7 +17,9 @@ public class PruebaItemDAO {
 
 		//compara precios de items
 		
-		Item i = itemDAO.obtenerItems(1, "SKF", "Argentina");
+		List<String> marcas = new ArrayList<String>();
+		marcas.add("SKF");
+		Item i = itemDAO.obtenerItemPorMejorPrecio(new Integer(1), marcas, "paisOrigen");
 		System.out.println(i.toString());
 		
 		//1	1	caract 1	SKF	Argentina	1
