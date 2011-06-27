@@ -64,7 +64,7 @@ public class ListaPrecioLoader {
 			List<Item> itemList = new ArrayList<Item>();
 			for(int nose = 9; nose<28;){
 				Item it = new Item();
-				it.setIdItem(lst.item(i).getChildNodes().item(nose).getAttributes().item(0).getNodeValue());
+				//it.setIdItem(lst.item(i).getChildNodes().item(nose).getAttributes().item(0).getNodeValue());
 				NodeList datos = lst.item(i).getChildNodes().item(nose).getChildNodes();
 				//it.setRodamiento(new RodamientoDAOImpl().findByName(datos.item(1).getChildNodes().item(0).getNodeValue()));
 				it.setCantidad(Integer.parseInt(datos.item(5).getChildNodes().item(0).getNodeValue()));

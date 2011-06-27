@@ -1,10 +1,16 @@
 package test;
 
-import dao.ListaPreciosDAO;
-import dao.impl.ListaPreciosDAOImpl;
+import java.util.HashSet;
+import java.util.Set;
+
 import modelo.Item;
 import modelo.ListaPrecios;
+import modelo.Proveedor;
 import modelo.Rodamiento;
+import dao.ListaPreciosDAO;
+import dao.ProveedorDAO;
+import dao.impl.ListaPreciosDAOImpl;
+import dao.impl.ProveedorDAOImpl;
 
 public class PruebaListaPreciosDAO {
 
@@ -13,10 +19,21 @@ public class PruebaListaPreciosDAO {
 	 */
 	public static void main(String[] args) {
 		ListaPreciosDAO lpDAO = new ListaPreciosDAOImpl();
-	
-		/*
+		ProveedorDAO pDAO = new ProveedorDAOImpl();
+		
+		
+		
 		ListaPrecios lp = new ListaPrecios();
+		Set<ListaPrecios> slp=new HashSet<ListaPrecios>();
+		slp.add(lp);
+		Proveedor p=new Proveedor("27456225881",1, slp,"NuevoProveedor","42658961");
+
 		lp.setNumeroLista(new Integer(123456));
+		lp.setDescuento(new Double (0.20));
+		lp.setTipo(new String ("oferta"));
+		lp.setVigencia(new Integer(1));
+		lp.setProveedor(p);
+		
 		
 		Rodamiento rodamiento1 = new Rodamiento();
 		rodamiento1.setCaracteristicas("caract 1");
@@ -48,9 +65,12 @@ public class PruebaListaPreciosDAO {
 		lp.getItems().add(item1);
 		lp.getItems().add(item2);
 		
+
+		
+		pDAO.save(p);
 		lpDAO.save(lp);
 		System.out.println("Salvada la lista número " + lp.getNumeroLista());
-		*/
+		
 		
 		//Busco por numero de lista
 		/*
@@ -60,6 +80,7 @@ public class PruebaListaPreciosDAO {
 		
 		//Elimino la lista
 		//lpDAO.delete(1); //not funking, por el tema de la sesion de mierda... para esto sirve spring tmb!
+		
 		
 	}
 

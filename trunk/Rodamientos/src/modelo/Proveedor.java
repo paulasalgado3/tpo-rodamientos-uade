@@ -16,6 +16,28 @@ import javax.persistence.Table;
 @Table(name = "proveedores")
 public class Proveedor implements Serializable{
 
+	public Proveedor(Set<CondicionCompra> condicionesCompra, String cuit,
+			Integer id, Set<ListaPrecios> listaPrecios, String razonSocial,
+			String telefono) {
+		super();
+		this.condicionesCompra = condicionesCompra;
+		this.cuit = cuit;
+		this.id = id;
+		this.listaPrecios = listaPrecios;
+		this.razonSocial = razonSocial;
+		this.telefono = telefono;
+	}
+	public Proveedor(String cuit,
+			Integer id, Set<ListaPrecios> listaPrecios, String razonSocial,
+			String telefono) {
+		super();
+		this.condicionesCompra = null;
+		this.cuit = cuit;
+		this.id = id;
+		this.listaPrecios = listaPrecios;
+		this.razonSocial = razonSocial;
+		this.telefono = telefono;
+	}
 	private Integer id;
 	private String razonSocial;
 	private String cuit;
@@ -85,5 +107,6 @@ public class Proveedor implements Serializable{
 	}
 	public Proveedor() {
 	}
+	
 	
 }
