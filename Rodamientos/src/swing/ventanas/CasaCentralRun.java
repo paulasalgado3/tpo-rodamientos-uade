@@ -28,8 +28,8 @@ public class CasaCentralRun {
 		frame.setJMenuBar(menuBar);
 		
 		// Aca voy agregando los distintos menus
+		menuBar.add(new MenuArchivo());
 		menuBar.add(new MenuProveedor());
-		
 		
 		// Aca voy agregando los componentes
 		c.add(new PanelCentral(), BorderLayout.CENTER);
