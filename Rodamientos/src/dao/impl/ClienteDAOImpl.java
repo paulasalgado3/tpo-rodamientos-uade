@@ -20,6 +20,7 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDA
 		
 		return (Cliente)query.uniqueResult();
 	}
+	
 	@Override
 	public void delete(Integer id) {//tiene qe volar, heredar usando generics.
 		Session session = HibernateUtil.getSessionFactory().openSession();
