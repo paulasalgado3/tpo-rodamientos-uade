@@ -34,12 +34,15 @@ public class Item {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	/* Lo comento porque no tengo la mas palida idea de que es, quien lo puso y para que sirve.
+	 * Tambien me crashea cuando quiero levanta la DB, por eso lo comente.
 <<<<<<< .mine
 	
 =======
 
 >>>>>>> .r68
-	
+	*/
 	@ManyToOne
 	@JoinColumn(name = "id_lista_precio")
 	public ListaPrecios getListaPrecios() {
