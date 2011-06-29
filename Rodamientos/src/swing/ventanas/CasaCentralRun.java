@@ -7,6 +7,7 @@ public class CasaCentralRun {
 	
 	static JFrame frame;
 	static PanelCentral panelCentral;
+	static PanelSur panelSur;
 	
 	public void run() {
 		frame = new JFrame("Casa Central RODACOR");
@@ -32,6 +33,7 @@ public class CasaCentralRun {
 		
 		// Aca voy agregando los componentes
 		c.add(new PanelCentral(), BorderLayout.CENTER);
+		c.add(new PanelSur(), BorderLayout.SOUTH);
 	} 
 	
 	public static void cerrarVentana() {

@@ -17,16 +17,14 @@ public class ManejadorEventosProveedor {
 	public void agregarProveedor(String razonSocial, String CUIT, String telefono){
 		Proveedor nuevoProveedor = new Proveedor(razonSocial, CUIT, telefono);
 		new ProveedorDAOImpl().save(nuevoProveedor);
-		System.out.println("Agregue al proveedor de CUIT"+CUIT);
 	}
 	
 	public void modificarProveedor(){
 		System.out.println("Mete aca el codigo del MOdificar DAO");
 	}
 	
-	public void bajarProveedor(String CUIT){
-		new ProveedorDAOImpl().borrarProveedor(CUIT);
-		System.out.println("El CUIT del proveedor borrado es:"+CUIT);
+	public boolean bajarProveedor(String CUIT){
+		return new ProveedorDAOImpl().borrarProveedor(CUIT);
 	}
 	
 	public void listarProveedores(){

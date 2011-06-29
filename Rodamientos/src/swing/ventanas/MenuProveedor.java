@@ -36,7 +36,7 @@ public class MenuProveedor extends JMenu {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				//	Aca hay que poner el controlador que lo maneja
-				new AltaProveedorFrame(ManejadorEventosProveedor.getInstancia());
+				new AltaProveedorFrame(ManejadorEventosProveedor.getInstancia());		
 			}
 		});
 		
@@ -66,7 +66,7 @@ public class MenuProveedor extends JMenu {
 		});
 		
 		menuItemListarProveedores = new JMenuItem("Listar Proveedores");
-		menuItemBorrarProveedor.addActionListener(new ActionListener() {
+		menuItemListarProveedores.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
