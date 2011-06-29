@@ -19,34 +19,24 @@ public class PruebaListaPreciosDAO {
 	 */
 	public static void main(String[] args) {
 		ListaPreciosDAO lpDAO = new ListaPreciosDAOImpl();
-		ProveedorDAO pDAO = new ProveedorDAOImpl();
-		
-		
-		
 		ListaPrecios lp = new ListaPrecios();
-		Set<ListaPrecios> slp=new HashSet<ListaPrecios>();
-		slp.add(lp);
-		Proveedor p=new Proveedor("27456225881",1, slp,"NuevoProveedor","42658961");
-
 		lp.setNumeroLista(new Integer(123456));
 		lp.setDescuento(new Double (0.20));
 		lp.setTipo(new String ("oferta"));
 		lp.setVigencia(new Integer(1));
-		lp.setProveedor(p);
+		
 		
 		
 		Rodamiento rodamiento1 = new Rodamiento();
 		rodamiento1.setCaracteristicas("caract 1");
-		rodamiento1.setCodigo(1);
+		rodamiento1.setCodigo("D1");
 		rodamiento1.setMarca("SKF");
-		rodamiento1.setNroSerie(1);
 		rodamiento1.setPaisOrigen("Argentina");
 		
 		Rodamiento rodamiento2 = new Rodamiento();
 		rodamiento2.setCaracteristicas("caract 2");
-		rodamiento2.setCodigo(2);
+		rodamiento2.setCodigo("E2");
 		rodamiento2.setMarca("FAG");
-		rodamiento2.setNroSerie(2);
 		rodamiento2.setPaisOrigen("Brasil");
 			
 		Item item1 = new Item();
@@ -64,12 +54,16 @@ public class PruebaListaPreciosDAO {
 		
 		lp.getItems().add(item1);
 		lp.getItems().add(item2);
+
+		//Le asigno a la lista de precios el proveedor del TEST PROVEEDOR
+		ProveedorDAOImpl pDAO = new ProveedorDAOImpl();
+		lp.setProveedor(pDAO.findByCuit("123456789"));
 		
 
-		
-		pDAO.save(p);
 		lpDAO.save(lp);
+		
 		System.out.println("Salvada la lista número " + lp.getNumeroLista());
+		
 		
 		
 		//Busco por numero de lista

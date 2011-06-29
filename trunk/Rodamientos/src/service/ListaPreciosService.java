@@ -8,8 +8,9 @@ import modelo.Item;
 
 public interface ListaPreciosService extends Remote {
 
-	Item obtenerItemPorMejorPrecio(Integer nroSerie, List<String> marcas,
+	Item obtenerItemPorMejorPrecio(String codigo, List<String> marcas, 
 			String paisOrigen, String caracteristicas) throws RemoteException;
 
+	
 
 }

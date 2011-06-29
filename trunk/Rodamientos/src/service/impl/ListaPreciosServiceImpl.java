@@ -21,12 +21,21 @@ public class ListaPreciosServiceImpl extends UnicastRemoteObject implements
 		// TODO Auto-generated constructor stub
 	}
 	
+	/*Obtener item con el mejor precio (sin verificar la cantidad) restringido con nroserie
+	 * (lo tomo como el codigo del rodamiento pq no existe otro numero de serie)
+	 * marcas pudiendo ser varias, origen, caracteristicas*/
+	
+	 
 	@Override
-	public Item obtenerItemPorMejorPrecio(Integer nroSerie, List<String> marcas, String paisOrigen, String caracteristicas) throws RemoteException{
+	public Item obtenerItemPorMejorPrecio(String codigo, List<String> marcas, String paisOrigen, String caracteristicas) throws RemoteException{
 		/*-	Mejor precio, características del rodamiento, marca, país de origen y lista del proveedor.*/
 		ItemDAOImpl itemDAO = new ItemDAOImpl();
-		return itemDAO.obtenerItemPorMejorPrecio(nroSerie, marcas, paisOrigen);
+		Item i = itemDAO.obtenerItemPorMejorPrecio(codigo, marcas, paisOrigen, caracteristicas);
 		
+		
+		
+		return i;
+
 	}
 
 }

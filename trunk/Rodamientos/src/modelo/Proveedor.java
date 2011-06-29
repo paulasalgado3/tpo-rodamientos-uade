@@ -34,17 +34,6 @@ public class Proveedor implements Serializable{
 		this.telefono = telefono;
 	}
 	
-	public Proveedor(Set<CondicionCompra> condicionesCompra, String cuit,
-			Integer id, Set<ListaPrecios> listaPrecios, String razonSocial,
-			String telefono) {
-		super();
-		this.condicionesCompra = condicionesCompra;
-		this.cuit = cuit;
-		this.id = id;
-		this.listaPrecios = listaPrecios;
-		this.razonSocial = razonSocial;
-		this.telefono = telefono;
-	}
 	
 	public Proveedor(String cuit,
 			Integer id, Set<ListaPrecios> listaPrecios, String razonSocial,
@@ -114,4 +103,8 @@ public class Proveedor implements Serializable{
 		this.condicionesCompra = condicionesCompra;
 	}
 	
+	//como puede tener varias listas de precios (porque es un set) hago un metodo para setearle una sola y no todo el set.
+	public void setunaListaPrecio(ListaPrecios lp){
+		this.listaPrecios.add(lp);
+	}
 }

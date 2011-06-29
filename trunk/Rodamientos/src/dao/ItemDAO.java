@@ -7,7 +7,7 @@ import modelo.Item;
 
 public interface ItemDAO extends GenericDAO<Item> {
 
-	Item obtenerItemPorMejorPrecio(Integer nroSerie, List<String> marca, String paisOrigen);
+	Item obtenerItemPorMejorPrecio(String codigo, List<String> marcas, String paisOrigen, String caracteristicas);
 
 
 }
