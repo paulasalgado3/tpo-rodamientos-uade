@@ -13,12 +13,13 @@ public class PruebaProveedorDAO {
 	 */
 	public static void main(String[] args) {
 		ProveedorDAO proveedorDAO = new ProveedorDAOImpl();
-		
 		Proveedor proveedor = new Proveedor();
 		proveedor.setCuit("123456789");
 		proveedor.setRazonSocial("Razon Social SA");
 		proveedor.setTelefono("0800-666-1111");
-		//proveedorDAO.save(proveedor);
+		
+		
+		proveedorDAO.save(proveedor);
 		
 		
 		//Listo todos

@@ -13,16 +13,15 @@ import dao.ItemDAO;
 
 public class ItemDAOImpl extends GenericDAOImpl<Item> implements ItemDAO{
 
-	@Override
-	public Item obtenerItemPorMejorPrecio(Integer nroSerie, List<String> marcas, String paisOrigen){
+	public Item obtenerItemPorMejorPrecio(String codigo, List<String> marcas, String paisOrigen, String caracteristicas){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from Item as i where i.rodamiento.nroSerie = :nroSerie and i.rodamiento.marca in :marcas and i.rodamiento.paisOrigen = :paisOrigen";
+		String hql = "from Item as i join i.rodamiento as r where r.codigo =:codigo and r.marca in:marcas and r.paisOrigen =:paisOrigen and r.caracteristicas =:caracteristicas";
 		Query query = session.createQuery(hql);
-		query.setInteger("nroSerie", nroSerie);
+		query.setString("codigo", codigo);
 		query.setParameterList("marcas", marcas);
 		query.setString("paisOrigen", paisOrigen);
-		
+		query.setString("caracteristicas", caracteristicas);
 		return (Item) query.uniqueResult();
 	}
 }
