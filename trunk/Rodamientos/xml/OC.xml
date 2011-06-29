@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrdenCompra>
+	<Item>
+		<Rodamiento>1</Rodamiento>
+		<Cantidad>100</Cantidad>
+	</Item>
+	<Item>
+		<Rodamiento>2</Rodamiento>
+		<Cantidad>100</Cantidad>
+	</Item>
+	<Item>
+		<Rodamiento>3</Rodamiento>
+		<Cantidad>100</Cantidad>
+	</Item>
+	<Item>
+		<Rodamiento>4</Rodamiento>
+		<Cantidad>100</Cantidad>
+	</Item>
+	
+</OrdenCompra>

@@ -10,3 +10,5 @@ create login usr_rodamientos with
 	default_database = RODAMIENTOS	
 
 exec sp_changedbowner usr_rodamientos
+
+--Script
