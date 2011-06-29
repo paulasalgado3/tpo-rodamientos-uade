@@ -24,4 +24,21 @@ public class ProveedorDAOImpl extends GenericDAOImpl<Proveedor> implements
 		return p;
 	}
 
+	public boolean borrarProveedor(String numeroCUIT) {
+		if (findByCuit(numeroCUIT) == null)
+			return false;
+		
+		else {
+			Session session = HibernateUtil.getSessionFactory().openSession();
+			session.beginTransaction();
+			
+			session.delete(findByCuit(numeroCUIT));
+			
+			session.flush();
+			session.getTransaction().commit();
+			session.close();
+			return true;
+		}
+	}
+
 }
