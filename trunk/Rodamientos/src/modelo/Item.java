@@ -30,11 +30,16 @@ public class Item {
 	public Integer getId() {
 		return id;
 	}
-	@SuppressWarnings("unused")
-	private void setId(Integer id) {
+	
+	public void setId(Integer id) {
 		this.id = id;
 	}
+<<<<<<< .mine
+	
+=======
 
+>>>>>>> .r68
+	
 	@ManyToOne
 	@JoinColumn(name = "id_lista_precio")
 	public ListaPrecios getListaPrecios() {

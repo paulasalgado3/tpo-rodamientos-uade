@@ -19,7 +19,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import dao.impl.ProveedorDAOImpl;
-import dao.impl.RodamientoDAOImpl;
 
 public class ListaPrecioLoader {
 	private Element n;
@@ -64,7 +63,11 @@ public class ListaPrecioLoader {
 			List<Item> itemList = new ArrayList<Item>();
 			for(int nose = 9; nose<28;){
 				Item it = new Item();
+<<<<<<< .mine
+				it.setId(Integer.parseInt(lst.item(i).getChildNodes().item(nose).getAttributes().item(0).getNodeValue()));
+=======
 				//it.setIdItem(lst.item(i).getChildNodes().item(nose).getAttributes().item(0).getNodeValue());
+>>>>>>> .r68
 				NodeList datos = lst.item(i).getChildNodes().item(nose).getChildNodes();
 				//it.setRodamiento(new RodamientoDAOImpl().findByName(datos.item(1).getChildNodes().item(0).getNodeValue()));
 				it.setCantidad(Integer.parseInt(datos.item(5).getChildNodes().item(0).getNodeValue()));
@@ -78,10 +81,6 @@ public class ListaPrecioLoader {
 		return listados;
 	}
 
-	private String getAtributo(Element e, String tag,int i) {
-		String result = e.getElementsByTagName(tag).item(i).getChildNodes().item(0).getNodeValue();
-		return result;
-	}
-	
+
 	
 }
