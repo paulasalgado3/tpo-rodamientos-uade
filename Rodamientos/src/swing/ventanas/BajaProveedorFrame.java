@@ -11,8 +11,7 @@ import javax.swing.JTextField;
 
 import swing.controladores.ManejadorEventosProveedor;
 
-
-public class AltaProveedorFrame extends JFrame {
+public class BajaProveedorFrame extends JFrame{
 
 	/**
 	 * 
@@ -22,49 +21,39 @@ public class AltaProveedorFrame extends JFrame {
 	private final int anchoVentana = 400;
 	private final int altoVentana = 200;
 	
-	private JLabel lblRazonSocial;
-	private JTextField txtRazonSocial;
-	private JLabel lblCuit;
-	private JTextField txtCuit;
-	private JLabel lblTelefono;
-	private JTextField txtTelefono;
-	private JButton btnAgregar;
+	private JLabel lblCUIT;
+	private JTextField txtCUIT;
+	private JButton btnBorrar;
 	private JButton btnCancelar;
 	
-	public AltaProveedorFrame(final ManejadorEventosProveedor controlador) {
+	public BajaProveedorFrame(final ManejadorEventosProveedor controlador) {
 	
 		// SETEO DE CARACTERISTICAS DE LA VENTANA 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
 		this.setSize(anchoVentana, altoVentana);
 		this.setVisible(true);
-		this.setTitle("Agregar Proveedor");
+		this.setTitle("Modificar Proveedor");
 		
 		
 		// SETEO DE ATRIBUTOS - ELEMENTOS DE LA VENTANA
 		
-		this.lblRazonSocial = new JLabel("Razón Social");
-		this.lblCuit = new JLabel("Cuit");
-		this.lblTelefono = new JLabel("Teléfono");
+		this.lblCUIT = new JLabel("Cuit");
 		
-		this.txtCuit = new JTextField(20);
-		this.txtRazonSocial = new JTextField(50);
-		this.txtTelefono = new JTextField(20);
+		this.txtCUIT = new JTextField(20);
 		
-		this.btnAgregar = new JButton("Agregar");
+		this.btnBorrar = new JButton("Agregar");
 		this.btnCancelar = new JButton("Cancelar");
 		
 		
 		//	MANEJO DE LOS EVENTOS
 		
-		this.btnAgregar.addActionListener(new ActionListener() {
+		this.btnBorrar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String razonSocial = txtRazonSocial.getText();
-				String cuit = txtCuit.getText();
-				String telefono = txtTelefono.getText();
-				controlador.agregarProveedor(razonSocial, cuit, telefono);
+				String cuit = txtCUIT.getText();
+				controlador.bajarProveedor(cuit);
 				dispose();
 			}
 		});
@@ -81,13 +70,9 @@ public class AltaProveedorFrame extends JFrame {
 		//	AGREGADO DE ELEMENTOS AL FRAME
 		
 		this.setLayout(new GridLayout(4,2));
-		this.add(lblRazonSocial);
-		this.add(txtRazonSocial);
-		this.add(lblCuit);
-		this.add(txtCuit);
-		this.add(lblTelefono);
-		this.add(txtTelefono);
-		this.add(btnAgregar);
+		this.add(lblCUIT);
+		this.add(txtCUIT);
+		this.add(btnBorrar);
 		this.add(btnCancelar);		
 	}
 }

@@ -25,8 +25,8 @@ public class ManejadorEventosProveedor {
 	}
 	
 	public void bajarProveedor(String CUIT){
-		new ProveedorDAOImpl().delete(new ProveedorDAOImpl().findByCuit(CUIT));
-		System.out.println("Mete el codigo del DAO, el CUIT del chabon a bajar es:"+CUIT);
+		new ProveedorDAOImpl().borrarProveedor(CUIT);
+		System.out.println("El CUIT del proveedor borrado es:"+CUIT);
 	}
 	
 	public void listarProveedores(){

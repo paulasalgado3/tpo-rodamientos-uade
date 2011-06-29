@@ -55,19 +55,17 @@ public class MenuProveedor extends JMenu {
 		
 		menuItemBorrarProveedor = new JMenuItem("Borrar un Proveedor");
 		menuItemBorrarProveedor.setToolTipText("Permite dar de baja un proveedor");
-//		menuItemFinalizar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));	// Esta linea es para agregar un atajo de teclado
 		menuItemBorrarProveedor.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				//	Aca hay que poner el controlador que lo maneja
-				ManejadorEventosProveedor.getInstancia().bajarProveedor("Conseguir el numero de la ventana bajar");
+				new BajaProveedorFrame(ManejadorEventosProveedor.getInstancia());
 			}
 		});
 		
 		menuItemListarProveedores = new JMenuItem("Listar Proveedores");
-//		menuItemFinalizar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));	// Esta linea es para agregar un atajo de teclado
 		menuItemBorrarProveedor.addActionListener(new ActionListener() {
 			
 			@Override
