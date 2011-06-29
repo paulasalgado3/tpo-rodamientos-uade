@@ -19,8 +19,15 @@ public class ManejadorEventosProveedor {
 		new ProveedorDAOImpl().save(nuevoProveedor);
 	}
 	
-	public void modificarProveedor(){
-		System.out.println("Mete aca el codigo del MOdificar DAO");
+	public boolean modificarProveedor(String viejoCuit, String nuevoCuit, String razSoc, String tel){
+		Proveedor proveedorModificado = new ProveedorDAOImpl().findByCuit(viejoCuit);
+		if (proveedorModificado == null)
+			return false;
+		proveedorModificado.setCuit(nuevoCuit);
+		proveedorModificado.setRazonSocial(razSoc);
+		proveedorModificado.setTelefono(tel);
+		new ProveedorDAOImpl().modificarProveedor(proveedorModificado);
+		return true;
 	}
 	
 	public boolean bajarProveedor(String CUIT){

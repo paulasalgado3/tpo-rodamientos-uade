@@ -2,6 +2,7 @@ package dao.impl;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import util.hibernate.HibernateUtil;
 
@@ -39,6 +40,23 @@ public class ProveedorDAOImpl extends GenericDAOImpl<Proveedor> implements
 			session.close();
 			return true;
 		}
+	}
+
+	public void modificarProveedor(Proveedor proveedorAModificar) {
+		// TODO Auto-generated method stub
+		Session sesion = HibernateUtil.getSessionFactory().openSession();
+		Transaction tx = sesion.beginTransaction();
+		String hql = "Update Proveedor p set p.razonSocial = :nuevaRazonSocial, p.cuit = :nuevoCUIT," +
+				"p.telefono = :nuevoTelefono where p.id = :id ";
+		
+		Query query = sesion.createQuery(hql);
+		query.setParameter("nuevaRazonSocial", proveedorAModificar.getRazonSocial());
+		query.setParameter("nuevoCUIT", proveedorAModificar.getCuit());
+		query.setParameter("nuevoTelefono", proveedorAModificar.getTelefono());
+		query.setParameter("id", proveedorAModificar.getId());
+		query.executeUpdate();
+		tx.commit();
+		sesion.close();
 	}
 
 }
