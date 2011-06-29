@@ -2,6 +2,7 @@ package swing.ventanas;
 
 import java.awt.event.*;
 import javax.swing.*;
+import swing.controladores.ManejadorEventosDB;
 
 public class MenuArchivo extends JMenu{
 
@@ -11,12 +12,8 @@ public class MenuArchivo extends JMenu{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JMenuItem menuItemIniciar;
-	private JMenuItem menuItemMostrarUsuarios;
-	private JMenuItem menuItemNuevoUsuario;
+	private JMenuItem menuItemIniciarConexionDB;
 	private JMenuItem menuItemFinalizar;
-	private JMenuItem menuItemBorrarUsuario;
-	private JMenuItem menuItemModificarUsuario;
 	
 	public MenuArchivo() {
 		super("Archivo");
@@ -26,6 +23,17 @@ public class MenuArchivo extends JMenu{
 	private void setMenu() {
 		
 		// Tuneo los elementos que va a tener mi menu
+		
+		menuItemIniciarConexionDB = new JMenuItem("Conectar a DB");
+		menuItemIniciarConexionDB.setToolTipText("Conectar el programa a la DataBase");
+		menuItemIniciarConexionDB.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				ManejadorEventosDB.getInstancia().conectarADataBase();
+			}
+		});
 		
 		
 		menuItemFinalizar = new JMenuItem("Cerrar");
@@ -38,6 +46,8 @@ public class MenuArchivo extends JMenu{
 		
 		
 		// Cargo todos mis elementos al menu
+		add(menuItemIniciarConexionDB);
+		add(new JSeparator());
 		add(menuItemFinalizar);
 	}
 }
