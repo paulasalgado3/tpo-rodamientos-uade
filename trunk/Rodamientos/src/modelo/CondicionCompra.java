@@ -17,6 +17,8 @@ public class CondicionCompra implements Serializable{
 
 	private Integer id;
 	private String formaPago;
+	private double interes;
+	
 	/* contado, y de 30 a 90 días (con o sin interés). Generalmente el proveedor
 	 * determina descuentos por pago contado
 	 */

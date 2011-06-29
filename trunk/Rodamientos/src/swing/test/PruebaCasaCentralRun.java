@@ -1,7 +1,5 @@
 package swing.test;
 
-import swing.controladores.ControladorAltaProveedor;
-import swing.ventanas.AltaProveedorFrame;
 import swing.ventanas.CasaCentralRun;
 
 public class PruebaCasaCentralRun {

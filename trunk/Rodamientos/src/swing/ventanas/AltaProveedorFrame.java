@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import swing.controladores.ControladorAltaProveedor;
+import swing.controladores.ManejadorEventosProveedor;
 
 @SuppressWarnings("serial")
 public class AltaProveedorFrame extends JFrame {
@@ -26,9 +26,17 @@ public class AltaProveedorFrame extends JFrame {
 	private JButton btnAgregar;
 	private JButton btnCancelar;
 	
-	public AltaProveedorFrame(final ControladorAltaProveedor cap) {
+	public AltaProveedorFrame(final ManejadorEventosProveedor controlador) {
 	
-		cap.setVentana(this);
+		// SETEO DE CARACTERISTICAS DE LA VENTANA 
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.pack();
+		this.setSize(anchoVentana, altoVentana);
+		this.setVisible(true);
+		this.setTitle("Agregar Proveedor");
+		
+		
+		// SETEO DE ATRIBUTOS - ELEMENTOS DE LA VENTANA
 		
 		this.lblRazonSocial = new JLabel("Razón Social");
 		this.lblCuit = new JLabel("Cuit");
@@ -41,6 +49,9 @@ public class AltaProveedorFrame extends JFrame {
 		this.btnAgregar = new JButton("Agregar");
 		this.btnCancelar = new JButton("Cancelar");
 		
+		
+		//	MANEJO DE LOS EVENTOS
+		
 		this.btnAgregar.addActionListener(new ActionListener() {
 			
 			@Override
@@ -48,16 +59,21 @@ public class AltaProveedorFrame extends JFrame {
 				String razonSocial = txtRazonSocial.getText();
 				String cuit = txtCuit.getText();
 				String telefono = txtTelefono.getText();
-				cap.agregarProveedor(razonSocial, cuit, telefono);
+				controlador.agregarProveedor(razonSocial, cuit, telefono);
+				dispose();
 			}
 		});
+		
 		this.btnCancelar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cap.cancelar();
+				dispose();
 			}
 		});
+		
+		
+		//	AGREGADO DE ELEMENTOS AL FRAME
 		
 		this.setLayout(new GridLayout(4,2));
 		this.add(lblRazonSocial);
@@ -67,12 +83,6 @@ public class AltaProveedorFrame extends JFrame {
 		this.add(lblTelefono);
 		this.add(txtTelefono);
 		this.add(btnAgregar);
-		this.add(btnCancelar);
-		
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.pack();
-		this.setSize(anchoVentana, altoVentana);
-		this.setVisible(true);
+		this.add(btnCancelar);		
 	}
-	
 }
