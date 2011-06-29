@@ -36,7 +36,7 @@ public class MenuProveedor extends JMenu {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				//	Aca hay que poner el controlador que lo maneja
-				ManejadorEventosProveedor.getInstancia().agregarProveedor();
+				new AltaProveedorFrame(ManejadorEventosProveedor.getInstancia());
 			}
 		});
 		

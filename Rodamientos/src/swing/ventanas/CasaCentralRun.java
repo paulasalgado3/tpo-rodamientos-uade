@@ -2,14 +2,13 @@ package swing.ventanas;
 
 import javax.swing.*;
 import java.awt.*;
-import java.rmi.RMISecurityManager;
 
 public class CasaCentralRun {
 	
 	static JFrame frame;
 	static PanelCentral panelCentral;
 	
-	public static void run() {
+	public void run() {
 		frame = new JFrame("Casa Central RODACOR");
 		components();
 		show();

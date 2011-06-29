@@ -1,5 +1,8 @@
 package swing.controladores;
 
+import dao.impl.ProveedorDAOImpl;
+import modelo.Proveedor;
+
 public class ManejadorEventosProveedor {
 	
 	private static ManejadorEventosProveedor instancia = null;
@@ -11,8 +14,10 @@ public class ManejadorEventosProveedor {
 		return instancia;
 	}
 	
-	public void agregarProveedor(){
-		System.out.println("Mete aca el codigo del DAO agregar");
+	public void agregarProveedor(String razonSocial, String CUIT, String telefono){
+		Proveedor nuevoProveedor = new Proveedor(razonSocial, CUIT, telefono);
+		new ProveedorDAOImpl().save(nuevoProveedor);
+		System.out.println("Agregue al proveedor de CUIT"+CUIT);
 	}
 	
 	public void modificarProveedor(){
@@ -20,6 +25,7 @@ public class ManejadorEventosProveedor {
 	}
 	
 	public void bajarProveedor(String CUIT){
+		new ProveedorDAOImpl().delete(new ProveedorDAOImpl().findByCuit(CUIT));
 		System.out.println("Mete el codigo del DAO, el CUIT del chabon a bajar es:"+CUIT);
 	}
 	
