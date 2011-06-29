@@ -11,3 +11,4 @@ Proyecto, ahora tenemos CasaCentral, ¿podemos tener otro proyecto adentro del re
 o tenemos si o si que tener otro Repositorio separado?
 Les consulto porque tengo miedo de crear el otro proyecto y hacer macana, o crashear este.
 
+Hace otro repo, por las dudas... total no afecta en nada...
