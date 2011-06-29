@@ -65,6 +65,10 @@ public class AltaProveedorFrame extends JFrame {
 				String cuit = txtCuit.getText();
 				String telefono = txtTelefono.getText();
 				controlador.agregarProveedor(razonSocial, cuit, telefono);
+				CasaCentralRun.panelSur.getDisplay().setText("Carga del Proveedor:\n"+
+						"\tRazon Social: "+razonSocial+"\n"+
+						"\tCUIT: "+cuit+"\n"+
+						"\tTelefono: "+telefono);
 				dispose();
 			}
 		});

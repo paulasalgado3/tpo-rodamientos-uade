@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import swing.controladores.ManejadorEventosProveedor;
@@ -33,7 +34,7 @@ public class BajaProveedorFrame extends JFrame{
 		this.pack();
 		this.setSize(anchoVentana, altoVentana);
 		this.setVisible(true);
-		this.setTitle("Modificar Proveedor");
+		this.setTitle("Borrar Proveedor");
 		
 		
 		// SETEO DE ATRIBUTOS - ELEMENTOS DE LA VENTANA
@@ -42,7 +43,7 @@ public class BajaProveedorFrame extends JFrame{
 		
 		this.txtCUIT = new JTextField(20);
 		
-		this.btnBorrar = new JButton("Agregar");
+		this.btnBorrar = new JButton("Borrar");
 		this.btnCancelar = new JButton("Cancelar");
 		
 		
@@ -53,7 +54,11 @@ public class BajaProveedorFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String cuit = txtCUIT.getText();
-				controlador.bajarProveedor(cuit);
+				boolean resultadoOperacion = controlador.bajarProveedor(cuit);
+				if (resultadoOperacion == true)
+					CasaCentralRun.panelSur.getDisplay().setText("El CUIT del proveedor borrado es: "+cuit);
+				else
+					JOptionPane.showMessageDialog(null, "No existe el Proveedor: "+cuit);
 				dispose();
 			}
 		});
