@@ -87,6 +87,6 @@ public class Rodamiento implements Serializable{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return this.marca+this.codigo;
+		return " Marca:"+this.marca+" Codigo:"+this.codigo;
 	}
 }

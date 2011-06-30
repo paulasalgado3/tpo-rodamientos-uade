@@ -20,7 +20,7 @@ public class PruebaListaPreciosDAO {
 	public static void main(String[] args) {
 		ListaPreciosDAO lpDAO = new ListaPreciosDAOImpl();
 		ListaPrecios lp = new ListaPrecios();
-		lp.setNumeroLista(new Integer(123456));
+		lp.setNumeroLista(new Integer(123457));
 		lp.setDescuento(new Double (0.20));
 		lp.setTipo(new String ("oferta"));
 		lp.setVigencia(new Integer(1));
@@ -29,13 +29,13 @@ public class PruebaListaPreciosDAO {
 		
 		Rodamiento rodamiento1 = new Rodamiento();
 		rodamiento1.setCaracteristicas("caract 1");
-		rodamiento1.setCodigo("D1");
+		rodamiento1.setCodigo("A1");
 		rodamiento1.setMarca("SKF");
 		rodamiento1.setPaisOrigen("Argentina");
 		
 		Rodamiento rodamiento2 = new Rodamiento();
 		rodamiento2.setCaracteristicas("caract 2");
-		rodamiento2.setCodigo("E2");
+		rodamiento2.setCodigo("B2");
 		rodamiento2.setMarca("FAG");
 		rodamiento2.setPaisOrigen("Brasil");
 			
@@ -43,12 +43,12 @@ public class PruebaListaPreciosDAO {
 		Item item2 = new Item();
 		
 		item1.setCantidad(2);
-		item1.setPrecio(new Float(1));
+		item1.setPrecio(new Float(2));
 		item1.setListaPrecios(lp);
 		item1.setRodamiento(rodamiento1);
 		
 		item2.setCantidad(3);
-		item2.setPrecio(new Float(2));
+		item2.setPrecio(new Float(3));
 		item2.setListaPrecios(lp);
 		item2.setRodamiento(rodamiento2);
 		
