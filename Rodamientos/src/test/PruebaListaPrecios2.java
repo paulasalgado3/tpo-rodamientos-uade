@@ -45,7 +45,7 @@ public class PruebaListaPrecios2 {
 		item1.setRodamiento(rodamiento);
 		
 		item2.setCantidad(5);
-		item2.setPrecio(new Float(0.75));
+		item2.setPrecio(new Float(0.5));
 		item2.setListaPrecios(lp);
 		item2.setRodamiento(rodamiento);
 		

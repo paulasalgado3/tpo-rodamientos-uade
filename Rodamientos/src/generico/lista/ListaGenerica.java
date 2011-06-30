@@ -9,6 +9,7 @@ import java.util.List;
  * Una lista generica para lo que vayamos precisando,
  * la podemos usar para cualquier cosa (Proveedores, clientes, prods, lo que fuese necesario)
  */
+
 public class ListaGenerica<E> {
 	
 	private List<E> lista = new ArrayList<E>();
