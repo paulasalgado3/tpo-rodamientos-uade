@@ -45,7 +45,7 @@ public class CompararPreciosServlet extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ListaPreciosService listaPreciosService = new ListaPreciosServiceImpl();
 		
-		Integer nroSerie = new Integer(request.getParameter("nroSerie"));
+		String codigo = request.getParameter("codigo");
 		String [] marcasString = request.getParameter("marcas").split(",");
 		List<String> marcas = new ArrayList<String>();
 		for(String m : marcasString){
@@ -54,8 +54,12 @@ public class CompararPreciosServlet extends HttpServlet {
 		String paisOrigen = request.getParameter("paisOrigen");
 		String caracteristicas = request.getParameter("caracteristicas");
 		
-		//Item item = listaPreciosService.obtenerItemPorMejorPrecio(nroSerie, marcas, paisOrigen, caracteristicas);
-		//request.setAttribute("item", item);
+		/*List<Item> obtenerItemPorMejorPrecio
+		(String codigo, List<String> marcas, String paisOrigen, String caracteristicas)*/
+		
+		
+		List<Item> items = listaPreciosService.obtenerItemPorMejorPrecio(codigo, marcas, paisOrigen, caracteristicas);
+		request.setAttribute("items", items);
 		String url = "/pages/comparativa-precios/resultado-comparar-precios.jsp";
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
 		requestDispatcher.forward(request, response);

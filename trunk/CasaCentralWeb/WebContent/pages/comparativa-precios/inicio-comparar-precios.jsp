@@ -8,11 +8,14 @@
 </head>
 <body>
 <form action="./CompararPreciosServlet" method="post">
+
+	<!-- List<Item> obtenerItemPorMejorPrecio
+	(String codigo, List<String> marcas, String paisOrigen, String caracteristicas) -->
 	<h1>Ingrese los parametros de busqueda de un rodamiento</h1>
 	<table>
 		<tr>
-			<td>Numero de serie</td>
-			<td><input type="text" name="nroSerie"/></td>
+			<td>Codigo</td>
+			<td><input type="text" name="codigo"/></td>
 		</tr>
 		<tr>
 			<td>Marcas</td>
