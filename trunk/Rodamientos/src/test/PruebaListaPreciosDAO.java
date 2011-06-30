@@ -29,7 +29,12 @@ public class PruebaListaPreciosDAO {
 		
 		
 		RodamientoDAOImpl rDAO = new RodamientoDAOImpl();
-		Rodamiento rodamiento1 = rDAO.findByCodigo("D1");
+		Rodamiento rodamiento1 = new Rodamiento();
+		rodamiento1.setCaracteristicas("caract 1");
+		rodamiento1.setCodigo("D1");
+		rodamiento1.setMarca("SFK");
+		rodamiento1.setPaisOrigen("Argentina");
+			
 	
 		
 		Rodamiento rodamiento2 = new Rodamiento();
