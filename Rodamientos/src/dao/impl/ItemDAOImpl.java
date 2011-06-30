@@ -16,7 +16,7 @@ public class ItemDAOImpl extends GenericDAOImpl<Item> implements ItemDAO{
 	public Item obtenerItemPorMejorPrecio(String codigo, List<String> marcas, String paisOrigen, String caracteristicas){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		//FALTA STOCK Y DESCUENTO
-		String hql = "from Item as i  where i.precio*i.listaPrecios.descuento  = (select min(i.precio*(1-i.listaPrecios.descuento)) from Item as i  where i.rodamiento.codigo =:codigo and i.rodamiento.marca in(:marcas) and i.rodamiento.paisOrigen =:paisOrigen and i.rodamiento.caracteristicas =:caracteristicas)";
+		String hql = "from Item as ii  where (ii.precio*(1-ii.listaPrecios.descuento))  = (select min(i.precio*(1-i.listaPrecios.descuento)) from Item as i  where i.rodamiento.codigo =:codigo and i.rodamiento.marca in(:marcas) and i.rodamiento.paisOrigen =:paisOrigen and i.rodamiento.caracteristicas =:caracteristicas)";
 		
 		Query query = session.createQuery(hql);
 		query.setString("codigo", codigo);
