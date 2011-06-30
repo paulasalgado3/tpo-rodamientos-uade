@@ -9,8 +9,10 @@ import modelo.Proveedor;
 import modelo.Rodamiento;
 import dao.ListaPreciosDAO;
 import dao.ProveedorDAO;
+import dao.RodamientoDAO;
 import dao.impl.ListaPreciosDAOImpl;
 import dao.impl.ProveedorDAOImpl;
+import dao.impl.RodamientoDAOImpl;
 
 public class PruebaListaPreciosDAO {
 
@@ -20,22 +22,19 @@ public class PruebaListaPreciosDAO {
 	public static void main(String[] args) {
 		ListaPreciosDAO lpDAO = new ListaPreciosDAOImpl();
 		ListaPrecios lp = new ListaPrecios();
-		lp.setNumeroLista(new Integer(123457));
-		lp.setDescuento(new Double (0.20));
+		lp.setNumeroLista(new Integer(123458));
+		lp.setDescuento(new Double (0.30));
 		lp.setTipo(new String ("oferta"));
 		lp.setVigencia(new Integer(1));
 		
 		
-		
-		Rodamiento rodamiento1 = new Rodamiento();
-		rodamiento1.setCaracteristicas("caract 1");
-		rodamiento1.setCodigo("A1");
-		rodamiento1.setMarca("SKF");
-		rodamiento1.setPaisOrigen("Argentina");
+		RodamientoDAOImpl rDAO = new RodamientoDAOImpl();
+		Rodamiento rodamiento1 = rDAO.findByCodigo("D1");
+	
 		
 		Rodamiento rodamiento2 = new Rodamiento();
 		rodamiento2.setCaracteristicas("caract 2");
-		rodamiento2.setCodigo("B2");
+		rodamiento2.setCodigo("h2");
 		rodamiento2.setMarca("FAG");
 		rodamiento2.setPaisOrigen("Brasil");
 			
@@ -43,12 +42,12 @@ public class PruebaListaPreciosDAO {
 		Item item2 = new Item();
 		
 		item1.setCantidad(2);
-		item1.setPrecio(new Float(2));
+		item1.setPrecio(new Float(1));
 		item1.setListaPrecios(lp);
 		item1.setRodamiento(rodamiento1);
 		
 		item2.setCantidad(3);
-		item2.setPrecio(new Float(3));
+		item2.setPrecio(new Float(1));
 		item2.setListaPrecios(lp);
 		item2.setRodamiento(rodamiento2);
 		
