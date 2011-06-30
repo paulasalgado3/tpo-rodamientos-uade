@@ -14,7 +14,7 @@ public class RodamientoDAOImpl extends GenericDAOImpl<Rodamiento> implements
 		RodamientoDAO {
 
 	@Override
-	public Rodamiento findByCodigo(Integer codigo) {
+	public Rodamiento findByCodigo(String codigo) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(Rodamiento.class);
 		criteria.add(Restrictions.eq("codigo", codigo));

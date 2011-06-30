@@ -123,4 +123,7 @@ public class ListaPrecios implements Comparable, Serializable{
 	public void setDescuento(Double descuento) {
 		this.descuento = descuento;
 	}
+	public String toString(){
+		return "Nro Lista Precios:"+this.numeroLista;
+	}
 }

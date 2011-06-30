@@ -37,5 +37,16 @@ public class ListaPreciosServiceImpl extends UnicastRemoteObject implements
 		return i;
 
 	}
+	/*Obtener item con el mejor precio (ordenados de menor a mayor)*/
+	
+	 
+	public List<Item> obtenerItemPorMejorPrecioCant(String codigo, List<String> marcas, String paisOrigen, String caracteristicas, int cantidad) throws RemoteException{
+		/*-	Mejor precio, características del rodamiento, marca, país de origen y lista del proveedor.*/
+		ItemDAOImpl itemDAO = new ItemDAOImpl();
+		List<Item> items = itemDAO.obtenerItemPorMejorPrecioCant(codigo, marcas, paisOrigen, caracteristicas, cantidad);
+		return items;
+
+	}
+
 
 }

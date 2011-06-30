@@ -24,7 +24,7 @@ public class PruebaRodamientosDAO {
 		*/
 		
 		//Bùsqueda por codigo
-		Rodamiento r = rodamientoDAO.findByCodigo(new Integer(123));
+		Rodamiento r = rodamientoDAO.findByCodigo(new String("123"));
 		System.out.println("Cod " + r.getCodigo()+ ", Marca: " + r.getMarca());
 		
 	}
