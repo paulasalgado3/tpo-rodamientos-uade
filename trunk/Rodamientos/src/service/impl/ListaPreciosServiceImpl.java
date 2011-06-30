@@ -27,14 +27,11 @@ public class ListaPreciosServiceImpl extends UnicastRemoteObject implements
 	
 	 
 	@Override
-	public Item obtenerItemPorMejorPrecio(String codigo, List<String> marcas, String paisOrigen, String caracteristicas) throws RemoteException{
+	public List<Item> obtenerItemPorMejorPrecio(String codigo, List<String> marcas, String paisOrigen, String caracteristicas) throws RemoteException{
 		/*-	Mejor precio, características del rodamiento, marca, país de origen y lista del proveedor.*/
-		ItemDAOImpl itemDAO = new ItemDAOImpl();
-		Item i = itemDAO.obtenerItemPorMejorPrecio(codigo, marcas, paisOrigen, caracteristicas);
+		ItemDAOImpl itemDAO = new ItemDAOImpl();		
 		
-		
-		
-		return i;
+		return itemDAO.obtenerItemPorMejorPrecio(codigo, marcas, paisOrigen, caracteristicas);
 
 	}
 	/*Obtener item con el mejor precio (ordenados de menor a mayor)*/
