@@ -61,7 +61,7 @@ public class ListaPrecioLoader {
 			lp.setNumeroLista(Integer.parseInt(lst.item(i).getChildNodes().item(5).getChildNodes().item(0).getNodeValue()));
 			lp.setDescuento(Double.parseDouble(lst.item(i).getChildNodes().item(7).getChildNodes().item(0).getNodeValue()));
 			List<Item> itemList = new ArrayList<Item>();
-			for(int nose = 9; nose<28;){
+			/*for(int nose = 9; nose<28;){
 				Item it = new Item();
 <<<<<<< .mine
 				it.setId(Integer.parseInt(lst.item(i).getChildNodes().item(nose).getAttributes().item(0).getNodeValue()));
@@ -75,6 +75,7 @@ public class ListaPrecioLoader {
 				itemList.add(it);
 				nose+=2;
 			}
+			*/
 			lp.setItems(itemList);
 			listados.add(lp);
 		}

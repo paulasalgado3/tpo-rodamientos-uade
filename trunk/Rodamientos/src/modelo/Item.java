@@ -74,6 +74,6 @@ public class Item {
 		this.cantidad = cantidad;
 	}	
 	public String toString(){
-		return this.getId()+this.getPrecio()+this.getRodamiento().toString();
+		return "Id Item:"+this.getId()+" Precio:"+this.getPrecio()+" Stock:"+this.getCantidad()+this.getRodamiento().toString();
 	}
 }
