@@ -1,9 +1,9 @@
 package dao.impl;
 
-import java.util.ArrayList;
+import generico.dao.impl.GenericDAOImpl;
+
 import java.util.List;
 
-import generico.dao.impl.GenericDAOImpl;
 import modelo.Item;
 
 import org.hibernate.Query;
@@ -28,6 +28,7 @@ public class ItemDAOImpl extends GenericDAOImpl<Item> implements ItemDAO{
 		return i;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Item> obtenerItemPorMejorPrecioCant(String codigo,
 			List<String> marcas, String paisOrigen, String caracteristicas,
 			int cantidad) {
@@ -39,7 +40,7 @@ public class ItemDAOImpl extends GenericDAOImpl<Item> implements ItemDAO{
 		query.setParameterList("marcas", marcas);
 		query.setString("paisOrigen", paisOrigen);
 		query.setString("caracteristicas", caracteristicas);
-		@SuppressWarnings("unchecked")
+		
 		List<Item> items=query.list();
 		return items;
 	}
