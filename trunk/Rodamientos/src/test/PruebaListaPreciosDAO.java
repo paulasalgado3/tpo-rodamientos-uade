@@ -1,15 +1,9 @@
 package test;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import modelo.Item;
 import modelo.ListaPrecios;
-import modelo.Proveedor;
 import modelo.Rodamiento;
 import dao.ListaPreciosDAO;
-import dao.ProveedorDAO;
-import dao.RodamientoDAO;
 import dao.impl.ListaPreciosDAOImpl;
 import dao.impl.ProveedorDAOImpl;
 import dao.impl.RodamientoDAOImpl;

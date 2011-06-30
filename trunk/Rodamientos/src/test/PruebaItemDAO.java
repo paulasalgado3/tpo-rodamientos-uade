@@ -20,6 +20,9 @@ public class PruebaItemDAO {
 		List<String> marcas = new ArrayList<String>();
 		marcas.add("SKF");
 		List<Item> items =  itemDAO.obtenerItemPorMejorPrecioCant("D1", marcas, "Argentina", "caract 1", 2);
+		Item item = itemDAO.obtenerItemPorMejorPrecio("D1", marcas, "Argentina", "caract 1");
+		
+		System.out.println(item.toString());
 		for (Item i:items){
 			System.out.println(i.toString());
 		}

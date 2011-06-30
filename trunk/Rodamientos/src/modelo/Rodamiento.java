@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 public class Rodamiento implements Serializable{
 
-	/* para mi el id del rodamiento esta de mas, se supone que hay que identificarlos por codigo
-	private Integer id;*/
+	/*el id es para hibernate, por eso lo pongo como privado el getter y setter*/
+	private Integer id;
 	private String codigo;
 	private String caracteristicas;
 	private String marca;
@@ -24,16 +24,17 @@ public class Rodamiento implements Serializable{
 	 */
 	//private Set<Rodamiento> equivalentes; //Esto despues lo vemos..
 
-	/*@Id
+	@SuppressWarnings("unused")
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getId() {
+	private Integer getId() {
 		return id;
 	}
 	@SuppressWarnings("unused")
 	private void setId(Integer id) {
 		this.id = id;
-	}*/
-	@Id
+	}
+	
 	public String getCodigo() {
 		return codigo;
 	}
@@ -66,24 +67,6 @@ public class Rodamiento implements Serializable{
 		this.paisOrigen = paisOrigen;
 	}
 
-	/*
-	public Set<Rodamiento> getEquivalentes() {
-		return equivalentes;
-	}
-
-	public void setEquivalentes(Set<Rodamiento> equivalentes) {
-		this.equivalentes = equivalentes;
-	}
-	*/
-	/*
-	public Integer getNroSerie() {
-		return nroSerie;
-	}
-
-	public void setNroSerie(Integer nroSerie) {
-		this.nroSerie = nroSerie;
-	}
-	*/
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
