@@ -3,7 +3,9 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.ClienteDAO;
 import dao.CotizacionDAO;
+import dao.ItemDAO;
 import dao.impl.ClienteDAOImpl;
 import dao.impl.CotizacionDAOImpl;
 import dao.impl.ItemDAOImpl;
@@ -22,10 +24,10 @@ public class PruebaCotizacionDAO {
 		//no tengo idea de que es este precio de venta....del total de la cotizacion???
 		cot.setPrecioVenta((float) 234.32);
 		//le pongo todos los items para probar
-		ItemDAOImpl iDAO = new ItemDAOImpl();
+		ItemDAO iDAO = new ItemDAOImpl();
 		cot.setItems(iDAO.findAll(Item.class));
 		
-		CotizacionDAOImpl cotDAO = new CotizacionDAOImpl();
+		CotizacionDAO cotDAO = new CotizacionDAOImpl();
 		cotDAO.save(cot);
 		System.out.println("Se guardo la siguiente cotizacion:"+cot.toString());
 

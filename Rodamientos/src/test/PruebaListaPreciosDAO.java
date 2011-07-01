@@ -4,6 +4,7 @@ import modelo.Item;
 import modelo.ListaPrecios;
 import modelo.Rodamiento;
 import dao.ListaPreciosDAO;
+import dao.RodamientoDAO;
 import dao.impl.ListaPreciosDAOImpl;
 import dao.impl.ProveedorDAOImpl;
 import dao.impl.RodamientoDAOImpl;
@@ -15,6 +16,7 @@ public class PruebaListaPreciosDAO {
 	 */
 	public static void main(String[] args) {
 		ListaPreciosDAO lpDAO = new ListaPreciosDAOImpl();
+		RodamientoDAO rDAO = new RodamientoDAOImpl();
 		ListaPrecios lp = new ListaPrecios();
 		lp.setNumeroLista(new Integer(123458));
 		lp.setDescuento(new Double (0.30));
@@ -56,7 +58,8 @@ public class PruebaListaPreciosDAO {
 		ProveedorDAOImpl pDAO = new ProveedorDAOImpl();
 		lp.setProveedor(pDAO.findByCuit("123456789"));
 		
-
+		rDAO.save(rodamiento1);
+		rDAO.save(rodamiento2);
 		lpDAO.save(lp);
 		
 		System.out.println("Salvada la lista número " + lp.getNumeroLista());
