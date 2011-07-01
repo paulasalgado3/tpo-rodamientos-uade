@@ -19,7 +19,7 @@ public class Cliente implements Serializable{
 	private Integer id;
 	private String nombre;
 	private String apellido;
-	private String dni;
+	private Integer dni;
 	private String telefono;
 	private CondicionPago condicionpago;// = condicionVenta
 	/*También puede otorgar descuentos adicionales a determinados clientes.*/
@@ -54,10 +54,10 @@ public class Cliente implements Serializable{
 		this.apellido = apellido;
 	}
 	
-	public String getDni() {
+	public Integer getDni() {
 		return dni;
 	}
-	public void setDni(String dni) {
+	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
 	public String getTelefono() {

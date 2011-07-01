@@ -8,4 +8,5 @@ public interface GenericDAO<T> {
 	void delete(T entity);
 	List<T> findAll(Class clazz);
 	
+	
 }

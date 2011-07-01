@@ -22,7 +22,6 @@ public class PruebaListaPreciosDAO {
 		lp.setVigencia(new Integer(1));
 		
 		
-		RodamientoDAOImpl rDAO = new RodamientoDAOImpl();
 		Rodamiento rodamiento1 = new Rodamiento();
 		rodamiento1.setCaracteristicas("caract 1");
 		rodamiento1.setCodigo("D1");
