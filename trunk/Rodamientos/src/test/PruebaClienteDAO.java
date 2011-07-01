@@ -18,15 +18,15 @@ public class PruebaClienteDAO {
 	public static void main(String[] args) {
 		
 		ClienteDAO clienteDAO = new ClienteDAOImpl();
-		/*
+		
 		Cliente cliente = new Cliente();
 		cliente.setApellido("Power");
 		cliente.setNombre("Max");
-		cliente.setDni("99999999");
+		cliente.setDni(99999999);
 		
 		clienteDAO.save(cliente);
 		System.out.println("Creó al cliente " + cliente.getNombre());
-		*/
+		
 		
 		//Listo todos
 		/*

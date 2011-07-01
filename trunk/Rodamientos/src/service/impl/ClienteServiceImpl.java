@@ -22,7 +22,7 @@ public class ClienteServiceImpl extends UnicastRemoteObject implements ClienteSe
 	}
 
 	@Override
-	public void agregarCliente(String nombre, String apellido, String dni,
+	public void agregarCliente(String nombre, String apellido, Integer dni,
 			String telefono) {
 			Cliente cliente = new Cliente();
 			cliente.setNombre(nombre);
@@ -37,19 +37,19 @@ public class ClienteServiceImpl extends UnicastRemoteObject implements ClienteSe
 	}
 
 	@Override
-	public void eliminarCliente(String dni) {
+	public void eliminarCliente(Integer dni) {
 		Cliente cli = clienteDAO.findByDni(dni);
 		clienteDAO.delete(cli);
 		
 	}
 
 	@Override
-	public void modificarCliente(String dni) {
+	public void modificarCliente(Integer dni) {
 		
 		
 	}
 	
-	public Cliente findByDni(String dni){
+	public Cliente findByDni(Integer dni){
 		return clienteDAO.findByDni(dni);
 	}
 

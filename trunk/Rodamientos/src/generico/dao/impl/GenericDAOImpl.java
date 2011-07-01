@@ -45,5 +45,6 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 		session.getTransaction().commit();
 		session.close();
 	}
+	
 
 }

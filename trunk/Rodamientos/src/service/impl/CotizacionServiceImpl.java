@@ -13,7 +13,7 @@ public class CotizacionServiceImpl implements CotizacionService {
 	CotizacionDAO cotizacionDAO = new CotizacionDAOImpl();
 	
 	@Override
-	public void generarCotizacion(String dniCliente){
+	public void generarCotizacion(Integer dniCliente){
 	
 		ClienteDAO clienteDAO = new ClienteDAOImpl();
 		Cliente cliente = clienteDAO.findByDni(dniCliente);

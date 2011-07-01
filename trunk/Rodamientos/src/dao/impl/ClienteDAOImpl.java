@@ -12,7 +12,7 @@ import generico.dao.impl.GenericDAOImpl;
 public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDAO{
 
 	@Override
-	public Cliente findByDni(String dni) {
+	public Cliente findByDni(Integer dni) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		String hql = "from Cliente c where c.dni = :dni";
 		Query query = session.createQuery(hql);
