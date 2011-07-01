@@ -9,8 +9,7 @@
 <body>
 <form action="./CompararPreciosServlet" method="post">
 
-	<!-- List<Item> obtenerItemPorMejorPrecio
-	(String codigo, List<String> marcas, String paisOrigen, String caracteristicas) -->
+	<!-- Cod10	caract 1	SFK	Argentina-->
 	<h1>Ingrese los parametros de busqueda de un rodamiento</h1>
 	<table>
 		<tr>
