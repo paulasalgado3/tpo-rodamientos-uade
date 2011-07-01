@@ -22,39 +22,47 @@ public class PruebaListaPrecios2 {
 		RodamientoDAO rodamientoDAO = new RodamientoDAOImpl();
 		ListaPreciosDAO listaPreciosDAO = new ListaPreciosDAOImpl();
 		
-		ListaPrecios lp = new ListaPrecios();
-		lp.setNumeroLista(new Integer(9999));
-		lp.setDescuento(new Double (0.22));
-		lp.setTipo(new String ("Listinga"));
-		lp.setVigencia(new Integer(1));
+		ListaPrecios lp1 = new ListaPrecios();
+		ListaPrecios lp2 = new ListaPrecios();
+		lp1.setNumeroLista(new Integer(1));
+		lp1.setDescuento(new Double (0.20));
+		lp1.setTipo(new String ("Lista1"));
+		lp1.setVigencia(new Integer(1));
+		
+		lp2.setNumeroLista(new Integer(2));
+		lp2.setDescuento(new Double (0.30));
+		lp2.setTipo(new String ("Lista2"));
+		lp2.setVigencia(new Integer(1));
 		
 		Rodamiento rodamiento = new Rodamiento();
-		rodamiento.setCaracteristicas("las caracteristicas");
-		rodamiento.setCodigo("Cod99");
-		rodamiento.setMarca("FCK");
-		rodamiento.setPaisOrigen("Chipre");
+		rodamiento.setCaracteristicas("caract 1");
+		rodamiento.setCodigo("Cod10");
+		rodamiento.setMarca("SFK");
+		rodamiento.setPaisOrigen("Argentina");
 		
 		rodamientoDAO.save(rodamiento);
 		
 		Item item1 = new Item();
 		Item item2 = new Item();
 		
-		item1.setCantidad(3);
-		item1.setPrecio(new Float(0.5));
-		item1.setListaPrecios(lp);
+		item1.setCantidad(2);
+		item1.setPrecio(new Float(1));
+		item1.setListaPrecios(lp1);
 		item1.setRodamiento(rodamiento);
 		
-		item2.setCantidad(5);
-		item2.setPrecio(new Float(0.5));
-		item2.setListaPrecios(lp);
+		item2.setCantidad(2);
+		item2.setPrecio(new Float(1));
+		item2.setListaPrecios(lp2);
 		item2.setRodamiento(rodamiento);
 		
-		lp.getItems().add(item1);
-		lp.getItems().add(item2);
+		lp1.getItems().add(item1);
+		lp2.getItems().add(item2);
 		
-		listaPreciosDAO.save(lp);
+		listaPreciosDAO.save(lp1);
+		listaPreciosDAO.save(lp2);
 		
-		System.out.println("Salvada la lista numero " + lp.getNumeroLista());
+		System.out.println("Salvada la lista numero " + lp1.getNumeroLista());
+		System.out.println("Salvada la lista numero " + lp2.getNumeroLista());
 		
 	}
 

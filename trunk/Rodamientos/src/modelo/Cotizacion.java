@@ -1,15 +1,28 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-@SuppressWarnings("serial")
+import javax.persistence.Table;
+@Entity
+@Table (name="cotizaciones")
 public class Cotizacion implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	public Cotizacion() {
 		super();
@@ -20,10 +33,14 @@ public class Cotizacion implements Serializable {
 		this.cliente = cliente;
 		this.precioVenta = precioVenta;
 	}
-
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_cotizacion")
+	private int id;
 	private Cliente cliente;
 	private Float precioVenta;
-	private List<Item> items;
+	private List<Item> items = new ArrayList<Item>();
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")

@@ -3,6 +3,7 @@ package util.hibernate;
 import modelo.Cliente;
 import modelo.CondicionCompra;
 import modelo.CondicionPago;
+import modelo.Cotizacion;
 import modelo.Item;
 import modelo.ListaPrecios;
 import modelo.Proveedor;
@@ -26,6 +27,7 @@ public class HibernateUtil {
 	        	 cfg.addAnnotatedClass(ListaPrecios.class);
 	        	 cfg.addAnnotatedClass(Proveedor.class);
 	        	 cfg.addAnnotatedClass(Rodamiento.class);
+	        	 cfg.addAnnotatedClass(Cotizacion.class);
 	        	 	        	 
 
 	             sessionFactory = cfg.buildSessionFactory();
