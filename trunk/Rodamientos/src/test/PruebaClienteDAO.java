@@ -19,7 +19,7 @@ public class PruebaClienteDAO {
 		
 		ClienteDAO clienteDAO = new ClienteDAOImpl();
 		
-		Cliente cliente = new Cliente();
+		/*Cliente cliente = new Cliente();
 		cliente.setApellido("Power");
 		cliente.setNombre("Max");
 		cliente.setDni(99999999);
@@ -27,7 +27,7 @@ public class PruebaClienteDAO {
 		clienteDAO.save(cliente);
 		System.out.println("Creó al cliente " + cliente.getNombre());
 		
-		
+		*/
 		//Listo todos
 		/*
 		List<Cliente> clientes = clienteDAO.findAll(Cliente.class);
@@ -35,10 +35,10 @@ public class PruebaClienteDAO {
 		*/
 		
 		//busco por dni
-		/*
-		Cliente cliente = clienteDAO.findByDni("99999999");
+		
+		Cliente cliente = clienteDAO.findByDni(99999999);
 		System.out.println(cliente.getNombre() + " " +cliente.getApellido());
-		*/
+		
 		
 		//Elimino un cliente
 		//clienteDAO.delete(1);

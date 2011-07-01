@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -24,6 +25,7 @@ public class Cotizacion implements Serializable {
 	private Cliente cliente;
 	private Float precioVenta;
 	private Set<Item> items = new HashSet<Item>();
+	private SolicitudCompra solicitudCompra;
 
 
 	@Id 
@@ -77,5 +79,14 @@ public class Cotizacion implements Serializable {
 
 	public void setItems(Set<Item> items) {
 		this.items = items;
+	}
+	@OneToOne
+	@JoinColumn(name = "id")
+	public SolicitudCompra getSolicitudCompra() {
+		return solicitudCompra;
+	}
+
+	public void setSolicitudCompra(SolicitudCompra solicitudCompra) {
+		this.solicitudCompra = solicitudCompra;
 	}
 }
