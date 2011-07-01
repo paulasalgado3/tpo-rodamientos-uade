@@ -18,7 +18,7 @@
 		<table>
 			<%for(SolicitudCompra sc : solicitudesCompra){%>
 			<tr>
-				<td></td>
+				<td><%=sc.getId()%></td>
 				<td><input type="checkbox" name="solicitudesCompra" value="<%=sc.getId()%>"/></td>
 			</tr>
 			<%}%>
