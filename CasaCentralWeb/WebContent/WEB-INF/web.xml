@@ -14,4 +14,14 @@
     <servlet-name>CompararPreciosServlet</servlet-name>
     <url-pattern>/CompararPreciosServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConfirmarSolicitudesCompraServlet</display-name>
+    <servlet-name>ConfirmarSolicitudesCompraServlet</servlet-name>
+    <servlet-class>servlets.ConfirmarSolicitudesCompraServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfirmarSolicitudesCompraServlet</servlet-name>
+    <url-pattern>/ConfirmarSolicitudesCompraServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
