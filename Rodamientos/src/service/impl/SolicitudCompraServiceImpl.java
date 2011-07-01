@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.List;
+
 import modelo.SolicitudCompra;
 import dao.SolicitudCompraDAO;
 import dao.impl.SolicitudCompraDAOImpl;
@@ -21,4 +23,8 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		
 		/*HACER LA PARTE DE LA FACTURACION*/
 	}
+	public List<SolicitudCompra> findAll(){
+		return solicitudCompraDAO.findAll(SolicitudCompra.class);
+	}
+	
 }
