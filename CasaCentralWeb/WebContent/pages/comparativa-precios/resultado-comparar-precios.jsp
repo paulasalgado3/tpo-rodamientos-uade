@@ -9,19 +9,16 @@
 <title>Resultado - Comparar Precios</title>
 </head>
 <body>
-
-<%List<Item> items = (List<Item>)request.getAttribute("items"); %>
-<%for(Item i : items){ %>
+	<%List<Item> items = (List<Item>)request.getAttribute("items"); %>
 	<table>
 		<tr>
+		<%for(Item i : items){ %>
 			<td>
-			<%=i.toString()%>
+			<%="Rodamiento: " + i.getRodamiento().getCodigo()+ " " + i.getRodamiento().getMarca()+ "  Precio: " + i.getPrecio()%>
 			</td>
+		<%}%>
 		</tr>
 	</table>
-<%}%>
-
 <br/>
-<a href="./pages/comparativa-precios/inicio-comparar-precios.jsp">Volver</a>
 </body>
 </html>
