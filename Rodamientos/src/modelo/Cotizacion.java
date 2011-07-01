@@ -1,8 +1,8 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,15 +14,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+@SuppressWarnings("serial")
 @Entity
 @Table (name="cotizaciones")
 public class Cotizacion implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	private int id;
+	private Cliente cliente;
+	private Float precioVenta;
+	private Set<Item> items = new HashSet<Item>();
 
+
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_cotizacion")
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Cotizacion() {
 		super();
@@ -33,14 +46,6 @@ public class Cotizacion implements Serializable {
 		this.cliente = cliente;
 		this.precioVenta = precioVenta;
 	}
-	@Id 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_cotizacion")
-	private int id;
-	private Cliente cliente;
-	private Float precioVenta;
-	private List<Item> items = new ArrayList<Item>();
-	
 	
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
@@ -59,16 +64,18 @@ public class Cotizacion implements Serializable {
 	public void setPrecioVenta(Float precioVenta) {
 		this.precioVenta = precioVenta;
 	}
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn (name="id")
-	public List<Item> getItems() {
+	
+	
+	public String toString(){
+		return "Cliente:"+this.cliente+" PrecioVenta:"+ this.precioVenta + " Items:"+ this.items.toString();
+	}
+
+	@OneToMany(mappedBy = "cotizacion", cascade=CascadeType.ALL)
+	public Set<Item> getItems() {
 		return items;
 	}
 
-	public void setItems(List<Item> items) {
+	public void setItems(Set<Item> items) {
 		this.items = items;
-	}	
-	public String toString(){
-		return "Cliente:"+this.cliente+" PrecioVenta:"+ this.precioVenta + " Items:"+ this.items.toString();
 	}
 }
