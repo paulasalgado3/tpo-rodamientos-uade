@@ -1,6 +1,5 @@
 package modelo;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +18,7 @@ public class Item {
 	private Rodamiento rodamiento;
 	private Float precio;
 	private Integer cantidad;
+	private Cotizacion cotizacion;
 	/*Al llegar una solicitud de un rodamiento, busco en cada lista de precio,
 	 * si el precio es el mejor, pero no alcanza la cantidad, compro estos y sigo con el siguiente
 	 * item por mejor precio.*/
@@ -66,5 +66,15 @@ public class Item {
 	}	
 	public String toString(){
 		return  this.listaPrecios.toString()+" Id Item:"+this.getId()+" Precio:"+this.getPrecio()+" Stock:"+this.getCantidad()+this.getRodamiento().toString();
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "id_cotizacion")
+	public Cotizacion getCotizacion() {
+		return cotizacion;
+	}
+
+	public void setCotizacion(Cotizacion cotizacion) {
+		this.cotizacion = cotizacion;
 	}
 }

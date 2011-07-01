@@ -1,16 +1,14 @@
 package test;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import dao.ClienteDAO;
+import modelo.Cotizacion;
+import modelo.Item;
 import dao.CotizacionDAO;
 import dao.ItemDAO;
 import dao.impl.ClienteDAOImpl;
 import dao.impl.CotizacionDAOImpl;
 import dao.impl.ItemDAOImpl;
-import modelo.Cotizacion;
-import modelo.Item;
 
 public class PruebaCotizacionDAO {
 
@@ -25,7 +23,10 @@ public class PruebaCotizacionDAO {
 		cot.setPrecioVenta((float) 234.32);
 		//le pongo todos los items para probar
 		ItemDAO iDAO = new ItemDAOImpl();
-		cot.setItems(iDAO.findAll(Item.class));
+		List<Item> items = iDAO.findAll(Item.class);
+		for(Item i : items){
+			cot.getItems().add(i);
+		}
 		
 		CotizacionDAO cotDAO = new CotizacionDAOImpl();
 		cotDAO.save(cot);

@@ -1,13 +1,13 @@
 package generico.dao.impl;
 
+import generico.dao.GenericDAO;
+
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import util.hibernate.HibernateUtil;
-
-import generico.dao.GenericDAO;
 
 public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 

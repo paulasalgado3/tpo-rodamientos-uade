@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @SuppressWarnings("serial")
 @Entity
@@ -73,6 +74,7 @@ public class Proveedor implements Serializable{
 	public void setRazonSocial(String razonSocial) {
 		this.razonSocial = razonSocial;
 	}
+	
 	
 	public String getCuit() {
 		return cuit;
