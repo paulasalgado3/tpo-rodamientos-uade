@@ -47,5 +47,6 @@ public class ConfirmarSolicitudesCompraServlet extends HttpServlet {
 		}
 		String url = "/pages/solicitud-compra";
 		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
 }
