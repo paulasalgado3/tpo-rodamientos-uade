@@ -1,6 +1,5 @@
 package rmi.server;
 
-import generico.lista.ListaGenerica;
 
 /*
  * Puse la clase esta para que vayamos probando todo en consola hasta que tengamos 
