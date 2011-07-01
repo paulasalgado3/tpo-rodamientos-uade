@@ -45,6 +45,17 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 		session.getTransaction().commit();
 		session.close();
 	}
+	@Override
+	public void update(T entidad){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		
+		session.update(entidad);
+		
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
+	}
 	
 
 }

@@ -20,6 +20,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 	
 		SolicitudCompra solicitudCompra = solicitudCompraDAO.findById(idSolicitudCompra);
 		solicitudCompra.setConfirmada(true);
+		solicitudCompraDAO.update(solicitudCompra);
 		
 		/*HACER LA PARTE DE LA FACTURACION*/
 	}
