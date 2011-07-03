@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -72,7 +73,7 @@ public class Cotizacion implements Serializable {
 		return "Cliente:"+this.cliente+" PrecioVenta:"+ this.precioVenta + " Items:"+ this.items.toString();
 	}
 
-	@OneToMany(mappedBy = "cotizacion", cascade=CascadeType.ALL)
+	@ManyToMany
 	public Set<Item> getItems() {
 		return items;
 	}
