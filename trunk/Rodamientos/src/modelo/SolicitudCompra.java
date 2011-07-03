@@ -33,8 +33,6 @@ public class SolicitudCompra implements Serializable {
 	public Integer getId() {
 		return id;
 	}
-
-	@SuppressWarnings("unused")
 	private void setId(Integer id) {
 		this.id = id;
 	}

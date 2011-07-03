@@ -1,5 +1,7 @@
 package dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -20,6 +22,17 @@ public class CotizacionDAOImpl extends GenericDAOImpl<Cotizacion> implements
 		query.setParameter("id", id);
 		
 		return (Cotizacion)query.uniqueResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Cotizacion> obtenerCotizacionCliente(Cliente cli) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query q = session.createQuery("from Cotizacion as c where cliente.dni=:dni ");
+		q.setInteger("dni", cli.getDni());
+		
+		return q.list();
+		
 	}
 
 }

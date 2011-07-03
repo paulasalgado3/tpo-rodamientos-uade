@@ -27,14 +27,5 @@ public class SolicitudCompraDAOImpl extends GenericDAOImpl<SolicitudCompra>
 		return (SolicitudCompra) q.uniqueResult();
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Cotizacion> obtenerCotizacionCliente(Cliente cli) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query q = session.createQuery("from Cotizacion as c where cliente.dni=:dni ");
-		q.setInteger("dni", cli.getDni());
-		
-		return q.list();
-		
-	}
+	
 }
