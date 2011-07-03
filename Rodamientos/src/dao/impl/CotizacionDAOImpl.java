@@ -21,7 +21,9 @@ public class CotizacionDAOImpl extends GenericDAOImpl<Cotizacion> implements
 		Query query = session.createQuery(hql);
 		query.setParameter("id", id);
 		
-		return (Cotizacion)query.uniqueResult();
+		Cotizacion c = (Cotizacion) query.uniqueResult();
+		session.close();
+		return c;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -30,9 +32,19 @@ public class CotizacionDAOImpl extends GenericDAOImpl<Cotizacion> implements
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query q = session.createQuery("from Cotizacion as c where cliente.dni=:dni ");
 		q.setInteger("dni", cli.getDni());
-		
 		return q.list();
 		
+	}
+	@Override
+	public void update(Cotizacion c){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		
+		session.update(c);
+		
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
 	}
 
 }

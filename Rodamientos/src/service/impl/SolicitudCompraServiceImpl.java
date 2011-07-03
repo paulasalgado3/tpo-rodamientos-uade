@@ -34,22 +34,20 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		/*me fijo si los items corresponden a alguna de las cotizaciones anteriores*/
 		Set<ItemCotizacion> itemsCotizados = new HashSet<ItemCotizacion>();
 		for (Cotizacion c :cotizaciones){
-			System.out.println(c.toString());
+		
 			Set<Item> it = c.getItems();
 			for(Item i:it){
-				System.out.println("items de la cotizacion previa"+i.toString());
+				
 				for(Item ii:items){
-					System.out.println("items pedidos"+ii.toString());
-					System.out.println(i.getId());
-					System.out.println(ii.getId());
+				
 					if((int)i.getId()==(int)ii.getId()){
 						/*si tiene el mismo id quiere decir que se cotizo previamente*/
-						System.out.println("SE AGREGO A LA LISTA");
+						
 						itemsCotizados.add(new ItemCotizacion(ii,c));
 						/*lo remuevo de la lista de items para que me queden unicamente los que no fueron cotizados*/
 						itemsNoCotizados.remove(ii);
 					}else{
-						System.out.println("no son el mismo");
+						
 					}
 				}
 			}
@@ -79,7 +77,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 				if((int)sol.getId_cotizacion()==(int)ic.getCot().getId()){
 					solicitudcotizaciongenerada=1;
 					sol.getItems().add(ic.getItem());
-					System.out.println(ic.getItem().toString()+sol.toString());
+					
 				}
 			}
 			//si no hay una solicitud para ese numero de cotizacion la creo
@@ -93,7 +91,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 				solicitudes.add(solicitud1);
 				/*les seteo a las cotizaciones las solicitudes*/
 				Cotizacion c=cDAO.findById(ic.getCot().getId());
-				System.out.println("NO HABIA SOLICITUD DE COTIZACION Y LA CREO PARA LA COTIZACION "+c.getId());
+			
 				c.setSolicitudCompra(solicitud1);
 				cotizacionesActualizar.add(c);
 				
@@ -105,7 +103,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		/*guardo las solicitudes de compra*/
 		
 		for(SolicitudCompra s:solicitudes){
-			System.out.println(s.toString());
+			
 			sDAO.save(s);
 		}
 		for(Cotizacion c:cotizacionesActualizar){
