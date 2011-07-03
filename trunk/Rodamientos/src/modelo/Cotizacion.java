@@ -82,7 +82,7 @@ public class Cotizacion implements Serializable {
 		this.items = items;
 	}
 	@OneToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_solicitud_compra")
 	public SolicitudCompra getSolicitudCompra() {
 		return solicitudCompra;
 	}
