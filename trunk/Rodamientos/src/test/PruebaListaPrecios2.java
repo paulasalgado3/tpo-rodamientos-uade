@@ -56,6 +56,8 @@ public class PruebaListaPrecios2 {
 		lp1.getItems().add(item1);
 		lp2.getItems().add(item2);
 		
+		
+		
 		listaPreciosDAO.save(lp1);
 		listaPreciosDAO.save(lp2);
 		
