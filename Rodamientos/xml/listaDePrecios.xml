@@ -6,62 +6,52 @@
 	 	<Numero>001</Numero>
 		<Descuento>0</Descuento>
 		<Item id="001">
-			<Origen>Argentina</Origen>
-			<Marca>Rodamiento 1</Marca>
+			<Rodamiento>1</Rodamiento>
 			<Cantidad>100</Cantidad>
 			<Precio>75.30</Precio>
 		</Item>
 		<Item id="002">
-			<Origen>Argentina</Origen>
-			<Marca>Rodamiento 2</Marca>
+			<Rodamiento>2</Rodamiento>
 			<Cantidad>200</Cantidad>
 			<Precio>33.40</Precio>
 		</Item>
 		<Item id="003">
-			<Origen>Alemania</Origen>
-			<Marca>Rodamiento 3</Marca>
+			<Rodamiento>3</Rodamiento>
 			<Cantidad>1000</Cantidad>
 			<Precio>102.31</Precio>
 		</Item>
 		<Item id="004">
-			<Origen>UK</Origen>
-			<Marca>Rodamiento 4</Marca>
+			<Rodamiento>4</Rodamiento>
 			<Cantidad>750</Cantidad>
 			<Precio>70.32</Precio>
 		</Item>
 		<Item id="005">
-			<Origen>USA</Origen>
-			<Marca>Rodamiento 5</Marca>
+			<Rodamiento>5</Rodamiento>
 			<Cantidad>500</Cantidad>
 			<Precio>25.79</Precio>
 		</Item>
 		<Item id="006">
-			<Origen>USA</Origen>
-			<Marca>Rodamiento 6</Marca>
+			<Rodamiento>6</Rodamiento>
 			<Cantidad>25</Cantidad>
 			<Precio>30</Precio>
 		</Item>
 		<Item id="007">
-			<Origen>USA</Origen>
-			<Marca>Rodamiento 7</Marca>
+			<Rodamiento>7</Rodamiento>
 			<Cantidad>20</Cantidad>
 			<Precio>10</Precio>
 		</Item>
 		<Item id="008">
-			<Origen>Suiza</Origen>
-			<Marca>Rodamiento 8</Marca>
+			<Rodamiento>8</Rodamiento>
 			<Cantidad>100</Cantidad>
 			<Precio>27.31</Precio>
 		</Item>
 		<Item id="009">
-			<Origen>Argentina</Origen>
-			<Marca>Rodamiento 9</Marca>
+			<Rodamiento>9</Rodamiento>
 			<Cantidad>75</Cantidad>
 			<Precio>20.19</Precio>
 		</Item>
 		<Item id="010">
-			<Origen>USA</Origen>
-			<Marca>Rodamiento 10</Marca>
+			<Rodamiento>9</Rodamiento>
 			<Cantidad>23</Cantidad>
 			<Precio>2.79</Precio>
 		</Item>
@@ -73,62 +63,52 @@
 	 	<Numero>002</Numero>
 		<Descuento>0.25</Descuento>
 		<Item id="001">
-			<Origen>Argentina</Origen>
-			<Marca>Rodamiento 1</Marca>
+			<Rodamiento>1</Rodamiento>
 			<Cantidad>10</Cantidad>
 			<Precio>75.30</Precio>
 		</Item>
 		<Item id="002">
-			<Origen>Argentina</Origen>
-			<Marca>Rodamiento 2</Marca>
+			<Rodamiento>2</Rodamiento>
 			<Cantidad>20</Cantidad>
 			<Precio>33.40</Precio>
 		</Item>
 		<Item id="003">
-			<Origen>Alemania</Origen>
-			<Marca>Rodamiento 3</Marca>
+			<Rodamiento>3</Rodamiento>
 			<Cantidad>100</Cantidad>
 			<Precio>102.31</Precio>
 		</Item>
 		<Item id="004">
-			<Origen>UK</Origen>
-			<Marca>Rodamiento 4</Marca>
+			<Rodamiento>4</Rodamiento>
 			<Cantidad>75</Cantidad>
 			<Precio>70.32</Precio>
 		</Item>
 		<Item id="005">
-			<Origen>USA</Origen>
-			<Marca>Rodamiento 5</Marca>
+			<Rodamiento>5</Rodamiento>
 			<Cantidad>50</Cantidad>
 			<Precio>25.79</Precio>
 		</Item>
 		<Item id="006">
-			<Origen>USA</Origen>
-			<Marca>Rodamiento 6</Marca>
+			<Rodamiento>6</Rodamiento>
 			<Cantidad>5</Cantidad>
 			<Precio>30</Precio>
 		</Item>
 		<Item id="007">
-			<Origen>USA</Origen>
-			<Marca>Rodamiento 7</Marca>
-			<Cantidad>7</Cantidad>
+			<Rodamiento>7</Rodamiento>
+			<Cantidad>5</Cantidad>
 			<Precio>10</Precio>
 		</Item>
 		<Item id="008">
-			<Origen>Suiza</Origen>
-			<Marca>Rodamiento 8</Marca>
+			<Rodamiento>8</Rodamiento>
 			<Cantidad>10</Cantidad>
 			<Precio>27.31</Precio>
 		</Item>
 		<Item id="009">
-			<Origen>Argentina</Origen>
-			<Marca>Rodamiento 9</Marca>
-			<Cantidad>25</Cantidad>
+			<Rodamiento>9</Rodamiento>
+			<Cantidad>7</Cantidad>
 			<Precio>20.19</Precio>
 		</Item>
 		<Item id="010">
-			<Origen>USA</Origen>
-			<Marca>Rodamiento 10</Marca>
+			<Rodamiento>9</Rodamiento>
 			<Cantidad>3</Cantidad>
 			<Precio>2.79</Precio>
 		</Item>

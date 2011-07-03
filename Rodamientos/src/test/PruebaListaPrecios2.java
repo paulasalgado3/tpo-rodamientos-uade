@@ -3,10 +3,8 @@ package test;
 import modelo.Item;
 import modelo.ListaPrecios;
 import modelo.Rodamiento;
-import dao.ItemDAO;
 import dao.ListaPreciosDAO;
 import dao.RodamientoDAO;
-import dao.impl.ItemDAOImpl;
 import dao.impl.ListaPreciosDAOImpl;
 import dao.impl.RodamientoDAOImpl;
 

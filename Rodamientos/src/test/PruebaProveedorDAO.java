@@ -24,13 +24,13 @@ public class PruebaProveedorDAO {
 		
 		//Listo todos
 		
-		List<Proveedor> proveedores = proveedorDAO.findAll(Proveedor.class);
-		System.out.println(proveedores.size());
+	//	List<Proveedor> proveedores = proveedorDAO.findAll(Proveedor.class);
+	//	System.out.println(proveedores.size());
 		
 		
 		//busco por cuit
-		Proveedor p = proveedorDAO.findByCuit("123456789");
-		System.out.println(p.getRazonSocial());
+	//	Proveedor p = proveedorDAO.findByCuit("123456789");
+	//	System.out.println(p.getRazonSocial());
 	}
 
 }

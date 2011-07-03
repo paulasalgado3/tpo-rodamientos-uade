@@ -1,9 +1,10 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,7 +29,7 @@ public class ListaPrecios implements Comparable, Serializable{
 	private Integer vigencia;
 	private Proveedor proveedor;
 	private String tipo;//Oferta - Normal - etc.
-	private List<Item> items = new ArrayList<Item>();
+	private Set<Item> items = new HashSet<Item>();
 	private Double descuento;//descuento por lista de precio, no por item.
 	
 	
@@ -93,11 +94,11 @@ public class ListaPrecios implements Comparable, Serializable{
 
 	//si borro la lista, q borre todos los items en cascada
 	@OneToMany(mappedBy = "listaPrecios", cascade = CascadeType.ALL)
-	public List<Item> getItems() {
+	public Set<Item> getItems() {
 		return items;
 	}
 
-	public void setItems(List<Item> itemList) {
+	public void setItems(Set<Item> itemList) {
 		this.items = itemList;
 	}
 
