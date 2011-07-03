@@ -65,7 +65,8 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		for(ItemCotizacion ic:itemsCotizados){
 			solicitudcotizaciongenerada=0;
 			for(SolicitudCompra sol:solicitudes){
-				if(sol.getId()==ic.getCot().getId()){
+				/*primer me fijo que no haya una solicitud ya creada para esa cotizacion*/
+				if(sol.getId_cotizacion()==ic.getCot().getId()){
 					solicitudcotizaciongenerada=1;
 					sol.getItems().add(ic.getItem());
 					
@@ -77,6 +78,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 				solicitud1.setCli(cli);
 				solicitud1.setItems(new HashSet<Item>());
 				solicitud1.getItems().add(ic.getItem());
+				solicitud1.setId_cotizacion(ic.getCot().getId());
 				solicitudes.add(solicitud1);
 				/*les seteo a las cotizaciones las solicitudes*/
 				Cotizacion c=cDAO.findById(ic.getCot().getId());

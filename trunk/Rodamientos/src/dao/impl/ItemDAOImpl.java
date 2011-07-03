@@ -4,6 +4,7 @@ import generico.dao.impl.GenericDAOImpl;
 
 import java.util.List;
 
+import modelo.Cliente;
 import modelo.Item;
 
 import org.hibernate.Query;
@@ -44,5 +45,14 @@ public class ItemDAOImpl extends GenericDAOImpl<Item> implements ItemDAO{
 		
 		List<Item> items=query.list();
 		return items;
+	}
+	@Override
+	public Item findById(Integer id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		String hql = "from Item i where i.id = :id";
+		Query query = session.createQuery(hql);
+		query.setParameter("id", id);
+		
+		return (Item)query.uniqueResult();
 	}
 }
