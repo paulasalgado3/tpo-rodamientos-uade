@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "solicitudes_compra")
@@ -23,7 +24,8 @@ public class SolicitudCompra implements Serializable {
 	private Boolean confirmada;
 	private Cliente cli;
 	private Set<Item> items = new HashSet<Item>();
-	
+	@Transient
+	private Integer id_cotizacion;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,5 +62,13 @@ public class SolicitudCompra implements Serializable {
 
 	public void setItems(Set<Item> items) {
 		this.items = items;
+	}
+
+	public Integer getId_cotizacion() {
+		return id_cotizacion;
+	}
+
+	public void setId_cotizacion(Integer id_cotizacion) {
+		this.id_cotizacion = id_cotizacion;
 	}	
 }

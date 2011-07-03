@@ -31,8 +31,8 @@ public class SolicitudCompraDAOImpl extends GenericDAOImpl<SolicitudCompra>
 	@Override
 	public List<Cotizacion> obtenerCotizacionCliente(Cliente cli) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query q = session.createQuery("from Cotizacion as c where cliente.dni= ");
-		q.setInteger("id", cli.getDni());
+		Query q = session.createQuery("from Cotizacion as c where cliente.dni=:dni ");
+		q.setInteger("dni", cli.getDni());
 		
 		return q.list();
 		
