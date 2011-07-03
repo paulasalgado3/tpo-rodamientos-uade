@@ -63,7 +63,7 @@ public class SolicitudCompra implements Serializable {
 	public void setItems(Set<Item> items) {
 		this.items = items;
 	}
-
+@Transient
 	public Integer getId_cotizacion() {
 		return id_cotizacion;
 	}
