@@ -18,28 +18,38 @@ import dao.impl.SolicitudCompraDAOImpl;
 import service.SolicitudCompraService;
 
 public class SolicitudCompraServiceImpl implements SolicitudCompraService{
-
-	SolicitudCompraDAO solicitudCompraDAO = new SolicitudCompraDAOImpl();
+	SolicitudCompraDAO sDAO = new SolicitudCompraDAOImpl();
 	
+	CotizacionDAO cDAO = new CotizacionDAOImpl();
 	public void generarSolicitudCompra(Set<Item> items, Cliente cli){
+		Set<Item> itemsNoCotizados = new HashSet<Item>();
 		/*genero un set de solicitudes de compra ya que si hay items cotizados y 
 		 * sin cotizar ya son dos solicitudes, y si hay items de mas de una cotizacion es una solicitud por cada cotizacion
 		 * */
 		Set<SolicitudCompra> solicitudes = new HashSet<SolicitudCompra>();
-
+		
 		/*primero me fijo si el cliente tiene una o varias cotizaciones*/
-		List<Cotizacion> cotizaciones =solicitudCompraDAO.obtenerCotizacionCliente(cli);
+		List<Cotizacion> cotizaciones =cDAO.obtenerCotizacionCliente(cli);
+		
 		/*me fijo si los items corresponden a alguna de las cotizaciones anteriores*/
 		Set<ItemCotizacion> itemsCotizados = new HashSet<ItemCotizacion>();
 		for (Cotizacion c :cotizaciones){
+			System.out.println(c.toString());
 			Set<Item> it = c.getItems();
 			for(Item i:it){
+				System.out.println("items de la cotizacion previa"+i.toString());
 				for(Item ii:items){
-					if(ii.getId()==i.getId()){
-						/*si son el mismo item quiere decir que se cotizo previamente*/
+					System.out.println("items pedidos"+ii.toString());
+					System.out.println(i.getId());
+					System.out.println(ii.getId());
+					if((int)i.getId()==(int)ii.getId()){
+						/*si tiene el mismo id quiere decir que se cotizo previamente*/
+						System.out.println("SE AGREGO A LA LISTA");
 						itemsCotizados.add(new ItemCotizacion(ii,c));
 						/*lo remuevo de la lista de items para que me queden unicamente los que no fueron cotizados*/
-						items.remove(ii);
+						itemsNoCotizados.remove(ii);
+					}else{
+						System.out.println("no son el mismo");
 					}
 				}
 			}
@@ -59,21 +69,22 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		 * PONERLE ITEMS
 		 * ACTUALIZAR COTIZACION CON EL NUMERO DE SOLICITUD DE COMPRA
 		 */
-		/*con los items cotizados genero las solicitudes de compra correspondientes (una por cotizacion)*/
-		CotizacionDAO cDAO = new CotizacionDAOImpl();
+		/*con los items cotizados genero las solicitudes de compra correspondientes (una por cotizacion) y actualizo las costizaciones con el numero de sol de compra correspondiente*/
+		Set<Cotizacion> cotizacionesActualizar = new HashSet<Cotizacion>();
 		Integer solicitudcotizaciongenerada =0;
 		for(ItemCotizacion ic:itemsCotizados){
 			solicitudcotizaciongenerada=0;
 			for(SolicitudCompra sol:solicitudes){
 				/*primer me fijo que no haya una solicitud ya creada para esa cotizacion*/
-				if(sol.getId_cotizacion()==ic.getCot().getId()){
+				if((int)sol.getId_cotizacion()==(int)ic.getCot().getId()){
 					solicitudcotizaciongenerada=1;
 					sol.getItems().add(ic.getItem());
-					
+					System.out.println(ic.getItem().toString()+sol.toString());
 				}
 			}
 			//si no hay una solicitud para ese numero de cotizacion la creo
 			if(solicitudcotizaciongenerada==0){
+				
 				SolicitudCompra solicitud1 = new SolicitudCompra();
 				solicitud1.setCli(cli);
 				solicitud1.setItems(new HashSet<Item>());
@@ -82,16 +93,23 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 				solicitudes.add(solicitud1);
 				/*les seteo a las cotizaciones las solicitudes*/
 				Cotizacion c=cDAO.findById(ic.getCot().getId());
+				System.out.println("NO HABIA SOLICITUD DE COTIZACION Y LA CREO PARA LA COTIZACION "+c.getId());
 				c.setSolicitudCompra(solicitud1);
-				cDAO.update(c);
+				cotizacionesActualizar.add(c);
+				
 			}
 			
 			
 		}
+		CotizacionDAO cotDAO = new CotizacionDAOImpl();
 		/*guardo las solicitudes de compra*/
-		SolicitudCompraDAO sDAO = new SolicitudCompraDAOImpl();
+		
 		for(SolicitudCompra s:solicitudes){
+			System.out.println(s.toString());
 			sDAO.save(s);
+		}
+		for(Cotizacion c:cotizacionesActualizar){
+			cotDAO.update(c);
 		}
 		
 		
@@ -102,15 +120,16 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 	}
 	
 	public void confirmarSolicitudCompra1(Integer idSolicitudCompra){
-	
-		SolicitudCompra solicitudCompra = solicitudCompraDAO.findById(idSolicitudCompra);
+		
+		SolicitudCompra solicitudCompra = sDAO.findById(idSolicitudCompra);
 		solicitudCompra.setConfirmada(true);
-		solicitudCompraDAO.update(solicitudCompra);
+		sDAO.update(solicitudCompra);
 		
 		/*HACER LA PARTE DE LA FACTURACION*/
 	}
 	public List<SolicitudCompra> findAll(){
-		return solicitudCompraDAO.findAll(SolicitudCompra.class);
+		
+		return sDAO.findAll(SolicitudCompra.class);
 	}
 	@Override
 	public void confirmarSolicitudCompra(Integer id) {

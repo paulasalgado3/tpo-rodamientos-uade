@@ -12,6 +12,5 @@ public interface SolicitudCompraDAO extends GenericDAO<SolicitudCompra> {
 
 	SolicitudCompra findById(Integer id);
 
-	List<Cotizacion> obtenerCotizacionCliente(Cliente cli);
 
 }

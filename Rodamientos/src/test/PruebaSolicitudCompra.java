@@ -35,6 +35,7 @@ public class PruebaSolicitudCompra {
 		items.add(iDAO.findById(3));
 		
 		SolicitudCompraService scs = new SolicitudCompraServiceImpl();
+		
 		scs.generarSolicitudCompra(items, cli);
 		
 		
