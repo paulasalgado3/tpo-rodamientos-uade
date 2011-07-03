@@ -1,9 +1,11 @@
 package xml;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,12 +15,15 @@ import modelo.Item;
 import modelo.ListaPrecios;
 import modelo.Proveedor;
 
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import dao.impl.ProveedorDAOImpl;
+import dao.impl.RodamientoDAOImpl;
 
 public class ListaPrecioLoader {
 	private Element n;
@@ -34,8 +39,19 @@ public class ListaPrecioLoader {
 		// Main de prueba para ver si levanta bien el xml
 		String archivo = "xml/listaDePrecios.xml";
 		try {
-			List<ListaPrecios> set = ListaPrecioLoader.getInstance().readXML(archivo);
-			System.out.println(set.get(0).getProveedor().getRazonSocial());
+			Set<ListaPrecios> set = ListaPrecioLoader.getInstance().readXML(archivo);
+			for(ListaPrecios lp : set){
+				System.out.println(lp.getTipo());
+				System.out.println(lp.getDescuento());
+				System.out.println(lp.getFecha());
+				System.out.println(lp.getProveedor().getRazonSocial());
+				System.out.println("Vacio??"+lp.getItems().size());
+				for(Item i:lp.getItems()){
+					if(i.getRodamiento()!=null)
+					System.out.println(i.getRodamiento().getMarca());
+				}
+			}
+	
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -43,8 +59,8 @@ public class ListaPrecioLoader {
 	}
 	
 	@SuppressWarnings("deprecation")//levanta las listas del xml!!!!!
-	public List<ListaPrecios> readXML(String xml) throws SAXException, IOException, ParserConfigurationException{
-		List<ListaPrecios> listados = new ArrayList<ListaPrecios>();
+	public Set<ListaPrecios> readXML(String xml) throws SAXException, IOException, ParserConfigurationException{
+		Set<ListaPrecios> listados = new HashSet<ListaPrecios>();
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(xml);
@@ -53,31 +69,56 @@ public class ListaPrecioLoader {
 		
 		Proveedor prov = new ProveedorDAOImpl().findByCuit(n.getAttribute("proveedor"));//lee el proveedor
 		for(int i = 0; i<lst.getLength();i++){
+			NodeList hijos = lst.item(i).getChildNodes();
 			ListaPrecios lp = new ListaPrecios();
+			Set<Item> set = new HashSet<Item>();
 			lp.setProveedor(prov);
-			lp.setTipo(lst.item(i).getAttributes().item(0).getNodeValue());
-			lp.setVigencia(Integer.parseInt(lst.item(i).getChildNodes().item(3).getChildNodes().item(0).getNodeValue()));
-			lp.setFecha(new Date(lst.item(i).getChildNodes().item(1).getChildNodes().item(0).getNodeValue()));
-			lp.setNumeroLista(Integer.parseInt(lst.item(i).getChildNodes().item(5).getChildNodes().item(0).getNodeValue()));
-			lp.setDescuento(Double.parseDouble(lst.item(i).getChildNodes().item(7).getChildNodes().item(0).getNodeValue()));
-			List<Item> itemList = new ArrayList<Item>();
-			/*for(int nose = 9; nose<28;){
-				Item it = new Item();
-<<<<<<< .mine
-				it.setId(Integer.parseInt(lst.item(i).getChildNodes().item(nose).getAttributes().item(0).getNodeValue()));
-=======
-				//it.setIdItem(lst.item(i).getChildNodes().item(nose).getAttributes().item(0).getNodeValue());
->>>>>>> .r68
-				NodeList datos = lst.item(i).getChildNodes().item(nose).getChildNodes();
-				//it.setRodamiento(new RodamientoDAOImpl().findByName(datos.item(1).getChildNodes().item(0).getNodeValue()));
-				it.setCantidad(Integer.parseInt(datos.item(5).getChildNodes().item(0).getNodeValue()));
-				it.setPrecio(Float.parseFloat(datos.item(7).getChildNodes().item(0).getNodeValue()));
-				itemList.add(it);
-				nose+=2;
+			lp.setTipo((lst.item(i).getAttributes().item(0).getNodeValue()));
+			lp.setItems(set);
+			for(int j=0;j<hijos.getLength();j++){
+				Node hijo = hijos.item(j);
+			
+				if(hijo.getNodeType()==Node.ELEMENT_NODE){
+					
+				//	System.out.println(hijo.getNodeName());
+					if(hijo.getNodeName().equals("Fecha")){
+						lp.setFecha(new Date(hijo.getChildNodes().item(0).getNodeValue()));
+					}
+					if(hijo.getNodeName().equals("Vigencia")){
+						lp.setVigencia(Integer.parseInt(hijo.getChildNodes().item(0).getNodeValue()));
+					}
+					if(hijo.getNodeName().equals("Descuento")){
+						lp.setDescuento(Double.parseDouble(hijo.getChildNodes().item(0).getNodeValue()));
+					}
+					if(hijo.getNodeName().equals("Numero")){
+						lp.setNumeroLista(Integer.parseInt(hijo.getChildNodes().item(0).getNodeValue()));
+					}
+					if(hijo.getNodeName().equals("Item")){
+						NodeList nietos = hijo.getChildNodes();
+						Item it = new Item();
+						for(int k =0 ;k <nietos.getLength();k++){
+							Node nieto = nietos.item(k);
+							if(nieto.getNodeType()==Node.ELEMENT_NODE){
+								if(nieto.getNodeName().equals("Rodamiento")){
+									it.setRodamiento(new RodamientoDAOImpl().findByCodigo(nieto.getChildNodes().item(0).getNodeValue()));
+								}
+								if(nieto.getNodeName().equals("Cantidad")){
+									it.setCantidad(Integer.parseInt(nieto.getChildNodes().item(0).getNodeValue()));
+								}
+								if(nieto.getNodeName().equals("Precio")){
+									it.setPrecio(Float.parseFloat(nieto.getChildNodes().item(0).getNodeValue()));
+								}
+							//	System.out.println("ITEM: "+nieto.getChildNodes().item(0).getNodeValue());
+							}
+						}
+						it.setListaPrecios(lp);
+						set.add(it);
+					}
+					
+				}
 			}
-			*/
-			lp.setItems(itemList);
 			listados.add(lp);
+			//System.out.println("......");
 		}
 		return listados;
 	}
