@@ -24,4 +24,34 @@
     <servlet-name>ConfirmarSolicitudesCompraServlet</servlet-name>
     <url-pattern>/ConfirmarSolicitudesCompraServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CompararServlet</display-name>
+    <servlet-name>CompararServlet</servlet-name>
+    <servlet-class>servlets.CompararServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CompararServlet</servlet-name>
+    <url-pattern>/CompararServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConfSolServlet</display-name>
+    <servlet-name>ConfSolServlet</servlet-name>
+    <servlet-class>servlets.ConfSolServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfSolServlet</servlet-name>
+    <url-pattern>/ConfSolServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConfirmarServlet</display-name>
+    <servlet-name>ConfirmarServlet</servlet-name>
+    <servlet-class>servlets.ConfirmarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfirmarServlet</servlet-name>
+    <url-pattern>/ConfirmarServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -7,6 +7,8 @@
 <title>Menu</title>
 </head>
 <body>
-<a href="./pages/comparativa-precios/inicio-comparar-precios.jsp">Comparativa de Precios</a>
+<a href="./comparativa-precios/inicio-comparar-precios.jsp">Comparativa de Precios</a>
+<br/>
+<a href="./solicitud-compra/inicio-confirmar-solicitud-compra.jsp">Confirmar solicitudes</a>
 </body>
 </html>

@@ -12,15 +12,15 @@ import service.SolicitudCompraService;
 import service.impl.SolicitudCompraServiceImpl;
 
 /**
- * Servlet implementation class ConfirmarSolicitudesCompraServlet
+ * Servlet implementation class ConfirmarServlet
  */
-public class ConfirmarSolicitudesCompraServlet extends HttpServlet {
+public class ConfirmarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ConfirmarSolicitudesCompraServlet() {
+    public ConfirmarServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,16 +29,13 @@ public class ConfirmarSolicitudesCompraServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.process(request, response);
+		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.process(request, response);
-	}
-	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] solicitudesCompra = request.getParameterValues("solicitudesCompra");
 		SolicitudCompraService solicitudCompraService = new SolicitudCompraServiceImpl();
 		for(int i = 0; i < solicitudesCompra.length; i++){
@@ -49,4 +46,5 @@ public class ConfirmarSolicitudesCompraServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
+
 }
