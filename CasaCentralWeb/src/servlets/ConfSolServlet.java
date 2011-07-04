@@ -14,13 +14,13 @@ import service.impl.SolicitudCompraServiceImpl;
 /**
  * Servlet implementation class ConfirmarSolicitudesCompraServlet
  */
-public class ConfirmarSolicitudesCompraServlet extends HttpServlet {
+public class ConfSolServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ConfirmarSolicitudesCompraServlet() {
+    public ConfSolServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

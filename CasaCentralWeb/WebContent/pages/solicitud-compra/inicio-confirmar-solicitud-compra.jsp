@@ -14,7 +14,7 @@
 	
 	<%SolicitudCompraService solicitudCompraService = new SolicitudCompraServiceImpl(); 
 	List<SolicitudCompra> solicitudesCompra = solicitudCompraService.findAll();%>
-	<form action="./ConfirmarSolicitudesCompraServlet">
+	<form action="./ConfirmarServlet" method="post">
 		<table>
 			<%for(SolicitudCompra sc : solicitudesCompra){%>
 			<tr>
