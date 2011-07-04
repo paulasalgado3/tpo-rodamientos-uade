@@ -21,7 +21,7 @@ import javax.persistence.Transient;
 public class SolicitudCompra implements Serializable {
 
 	private Integer id;
-	private Boolean confirmada;
+	private Boolean confirmada = false;//valor por defecto
 	private Cliente cli;
 	private Set<Item> items = new HashSet<Item>();
 	@Transient

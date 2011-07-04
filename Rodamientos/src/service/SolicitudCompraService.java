@@ -12,5 +12,5 @@ public interface SolicitudCompraService {
 	void generarSolicitudCompra(Set<Item> items, Cliente cli);
 	List<SolicitudCompra> findAll();
 	void confirmarSolicitudCompra(Integer id);
-	void confirmarSolicitudCompra1(Integer idSolicitudCompra);
+	List<SolicitudCompra> obtenerNoConfirmadas();
 }

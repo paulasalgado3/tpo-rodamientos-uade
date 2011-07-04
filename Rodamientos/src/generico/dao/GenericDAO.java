@@ -8,6 +8,7 @@ public interface GenericDAO<T> {
 	void delete(T entity);
 	List<T> findAll(Class clazz);
 	void update(T entidad);
+	void merge(T entidad);
 	
 	
 }
