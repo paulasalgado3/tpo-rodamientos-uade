@@ -116,12 +116,11 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		
 		
 	}
-	
-	public void confirmarSolicitudCompra1(Integer idSolicitudCompra){
+	public void confirmarSolicitudCompra(Integer idSolicitudCompra){
 		
 		SolicitudCompra solicitudCompra = sDAO.findById(idSolicitudCompra);
 		solicitudCompra.setConfirmada(true);
-		sDAO.update(solicitudCompra);
+		sDAO.merge(solicitudCompra);
 		
 	}
 	public List<SolicitudCompra> findAll(){
@@ -129,9 +128,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		return sDAO.findAll(SolicitudCompra.class);
 	}
 	@Override
-	public void confirmarSolicitudCompra(Integer id) {
-		// TODO Auto-generated method stub
-		
+	public List<SolicitudCompra> obtenerNoConfirmadas(){
+		return sDAO.obtenerNoConfirmadas();
 	}
-	
 }
