@@ -7,7 +7,7 @@
 <title>Comparar Precios</title>
 </head>
 <body>
-<form action="../../CompararServlet" method="post">
+<form action="./CompararServlet" method="post">
 
 	<!-- Cod10	caract 1	SFK	Argentina-->
 	<h1>Ingrese los parametros de busqueda de un rodamiento</h1>

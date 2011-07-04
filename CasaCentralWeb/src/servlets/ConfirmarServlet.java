@@ -42,7 +42,8 @@ public class ConfirmarServlet extends HttpServlet {
 			Integer id = new Integer(solicitudesCompra[i]);
 			solicitudCompraService.confirmarSolicitudCompra(id);
 		}
-		String url = "/pages/solicitud-compra/resultado-confirmar-solicitud-compra.jsp";
+		//String url = "/pages/solicitud-compra/resultado-confirmar-solicitud-compra.jsp";
+		String url = "./pages/solicitud-compra/resultado-confirmar-solicitud-compra.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
