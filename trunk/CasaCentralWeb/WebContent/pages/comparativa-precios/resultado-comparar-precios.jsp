@@ -12,14 +12,12 @@
 	<%List<Item> items = (List<Item>)request.getAttribute("items"); %>
 	<table>
 	<%for(Item i : items){ %>
-		<tr>
-		
+		<tr>		
 			<td>
 			<%="Rodamiento: " + i.getRodamiento().getCodigo()+ " " + i.getRodamiento().getMarca()+ "  Precio: " + i.getPrecio() + " Proveedor: " + i.getListaPrecios().getProveedor().getRazonSocial()%>
 			</td>
-		
 		</tr>
-		<%}%>
+	<%}%>
 	</table>
 <br/>
 </body>

@@ -13,7 +13,7 @@
 <body>
 	
 	<%SolicitudCompraService solicitudCompraService = new SolicitudCompraServiceImpl(); 
-	List<SolicitudCompra> solicitudesCompra = solicitudCompraService.findAll();%>
+	List<SolicitudCompra> solicitudesCompra = solicitudCompraService.obtenerNoConfirmadas();%>
 	<form action="./ConfirmarServlet" method="post">
 		<table>
 			<%for(SolicitudCompra sc : solicitudesCompra){%>
@@ -23,7 +23,9 @@
 			</tr>
 			<%}%>
 		</table>
-		<input type="submit" value="Enviar"/>
+		<%if(!solicitudesCompra.isEmpty()){ %>
+			<input type="submit" value="Confirmar"/>
+		<%} %>
 	</form>
 </body>
 </html>
