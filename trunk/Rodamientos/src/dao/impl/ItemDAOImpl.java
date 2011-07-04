@@ -18,8 +18,8 @@ public class ItemDAOImpl extends GenericDAOImpl<Item> implements ItemDAO{
 	@SuppressWarnings("unchecked")
 	public List<Item> obtenerItemPorMejorPrecio(String codigo, List<String> marcas, String paisOrigen, String caracteristicas){
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		//FALTA STOCK
-		String hql = "from Item as ii  where (ii.precio*(1-ii.listaPrecios.descuento))  = (select min(i.precio*(1-i.listaPrecios.descuento)) from Item as i  where i.rodamiento.codigo =:codigo and i.rodamiento.marca in(:marcas) and i.rodamiento.paisOrigen =:paisOrigen and i.rodamiento.caracteristicas =:caracteristicas)";
+	
+		String hql = "from Item as ii where ii.rodamiento.codigo =:codigo and ii.rodamiento.marca in(:marcas) and ii.rodamiento.paisOrigen =:paisOrigen and ii.rodamiento.caracteristicas =:caracteristicas and (ii.precio*(1-ii.listaPrecios.descuento))  = (select min(i.precio*(1-i.listaPrecios.descuento)) from Item as i  where i.rodamiento.codigo =:codigo and i.rodamiento.marca in(:marcas) and i.rodamiento.paisOrigen =:paisOrigen and i.rodamiento.caracteristicas =:caracteristicas)";
 		
 		Query query = session.createQuery(hql);
 		query.setString("codigo", codigo);
@@ -35,7 +35,7 @@ public class ItemDAOImpl extends GenericDAOImpl<Item> implements ItemDAO{
 			List<String> marcas, String paisOrigen, String caracteristicas,
 			int cantidad) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		//FALTA STOCK
+		
 		String hql = " from Item as i  where i.rodamiento.codigo =:codigo and i.rodamiento.marca in(:marcas) and i.rodamiento.paisOrigen =:paisOrigen and i.rodamiento.caracteristicas =:caracteristicas order by (i.precio*(1-i.listaPrecios.descuento))desc";
 		Query query = session.createQuery(hql);
 		query.setString("codigo", codigo);

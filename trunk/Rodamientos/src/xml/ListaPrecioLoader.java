@@ -1,8 +1,6 @@
 package xml;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,13 +13,14 @@ import modelo.Item;
 import modelo.ListaPrecios;
 import modelo.Proveedor;
 
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import dao.ListaPreciosDAO;
+import dao.impl.ListaPreciosDAOImpl;
 import dao.impl.ProveedorDAOImpl;
 import dao.impl.RodamientoDAOImpl;
 
@@ -36,6 +35,7 @@ public class ListaPrecioLoader {
 	}
 	
 	public static void main(String[] args) {
+		ListaPreciosDAO lpDao = new ListaPreciosDAOImpl();
 		// Main de prueba para ver si levanta bien el xml
 		String archivo = "xml/listaDePrecios.xml";
 		try {
@@ -50,6 +50,7 @@ public class ListaPrecioLoader {
 					if(i.getRodamiento()!=null)
 					System.out.println(i.getRodamiento().getMarca());
 				}
+				lpDao.save(lp);
 			}
 	
 		} catch (Exception e) {

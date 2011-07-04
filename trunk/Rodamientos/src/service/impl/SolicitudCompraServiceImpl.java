@@ -123,7 +123,6 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		solicitudCompra.setConfirmada(true);
 		sDAO.update(solicitudCompra);
 		
-		/*HACER LA PARTE DE LA FACTURACION*/
 	}
 	public List<SolicitudCompra> findAll(){
 		

@@ -3,12 +3,10 @@ package test;
 import java.util.HashSet;
 import java.util.Set;
 
-import service.SolicitudCompraService;
-import service.impl.SolicitudCompraServiceImpl;
 import modelo.Cliente;
 import modelo.Item;
-import modelo.SolicitudCompra;
-import dao.ClienteDAO;
+import service.SolicitudCompraService;
+import service.impl.SolicitudCompraServiceImpl;
 import dao.SolicitudCompraDAO;
 import dao.impl.ClienteDAOImpl;
 import dao.impl.ItemDAOImpl;
@@ -32,7 +30,10 @@ public class PruebaSolicitudCompra {
 		/*cotizacion 6*/
 		items.add(iDAO.findById(2));
 		/*sin cotizacion*/
-		items.add(iDAO.findById(3));
+
+		items.add(iDAO.findById(15));
+		items.add(iDAO.findById(16));
+		items.add(iDAO.findById(17));
 		
 		SolicitudCompraService scs = new SolicitudCompraServiceImpl();
 		
