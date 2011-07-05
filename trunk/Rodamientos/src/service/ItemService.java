@@ -6,5 +6,6 @@ import modelo.Item;
 
 public interface ItemService {
 	public List<Item> findAll();
+	public Item findById(int id);
 
 }

@@ -16,5 +16,8 @@ public class ItemServiceImpl implements ItemService {
 				
 		return iDAO.findAll(Item.class);	
 	}
+	public Item findById(int id){
+		return iDAO.findById(id);
+	}
 
 }
