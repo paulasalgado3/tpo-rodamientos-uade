@@ -23,7 +23,7 @@ import service.impl.ItemServiceImpl;
 import service.impl.SolicitudCompraServiceImpl;
 
 /**
- * Servlet implementation class ConfirmarServlet
+ * Servlet implementation class GenerarSolicitudCompraServlet
  */
 public class GenerarSolicitudCompraServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
