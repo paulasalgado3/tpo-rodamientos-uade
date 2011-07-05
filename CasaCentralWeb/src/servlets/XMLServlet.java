@@ -86,13 +86,14 @@ public class XMLServlet extends HttpServlet {
 					buscar = item.getName();
 					System.out.println("Leido: "+buscar);
 					File file = new File(buscar);
-					System.out.println(destino+file.getName());
-					file = new File(destino + file.getName());
+					
+					file = new File(destino+file.getName());
 					//con esto lo guardo al disco.. pero yo no lo quiero guardar en el disco, por eso, lo comento.
-					//item.write(file);
+					item.write(file);
 					ListaDesdeXMLService lpl = ListaPrecioLoader.getInstance();
 					System.out.println("lpl"+lpl);
-					Set<ListaPrecios> lst = lpl.readXML(file);
+					lpl.loadXML(file);
+					
 					request.setAttribute("file", file);
 					request.setAttribute("arch", file.getTotalSpace());
 					}
