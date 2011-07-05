@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>Por favor, indique el archivo XML fuente para cargar las listas de precios:</h3>
-<form action="../../LevantarXMLServlet" METHOD=POST ENCTYPE="multipart/form-data">
+<form action="../../XMLServlet" METHOD=POST ENCTYPE="multipart/form-data">
 	<input type="file" name ="files">
 	<br/>
 	<p align="center"><input type="submit" name ="subm"> </p>
