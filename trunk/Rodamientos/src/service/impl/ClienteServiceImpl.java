@@ -16,7 +16,7 @@ public class ClienteServiceImpl extends UnicastRemoteObject implements ClienteSe
 	
 	ClienteDAO clienteDAO;
 	
-	protected ClienteServiceImpl() throws RemoteException {
+	public ClienteServiceImpl() throws RemoteException {
 		super();
 		clienteDAO = new ClienteDAOImpl();
 	}
