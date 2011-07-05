@@ -20,12 +20,12 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import dao.ListaPreciosDAO;
-import dao.impl.ListaPreciosDAOImpl;
+import service.ListaDesdeXMLService;
+
 import dao.impl.ProveedorDAOImpl;
 import dao.impl.RodamientoDAOImpl;
 
-public class ListaPrecioLoader {
+public class ListaPrecioLoader implements ListaDesdeXMLService{
 	private Element n;
 	private ListaPrecioLoader(){}
 	private static ListaPrecioLoader l=null;
