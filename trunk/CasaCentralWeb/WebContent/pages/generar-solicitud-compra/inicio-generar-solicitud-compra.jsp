@@ -28,7 +28,8 @@
 		</table>
 		<input type="submit" value="Enviar"/>
 	</form>
-
+<br/><br/>
+	<a href="/CasaCentralWeb/index.html">Volver</a>
 
 
 </body>

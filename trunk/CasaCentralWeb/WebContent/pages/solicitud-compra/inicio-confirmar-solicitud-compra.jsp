@@ -25,7 +25,9 @@
 		</table>
 		<%if(!solicitudesCompra.isEmpty()){ %>
 			<input type="submit" value="Confirmar"/>
-		<%} %>
+		<%} else{%>No hay solicitudes pendientes de confirmacion.<%} %>
 	</form>
+	<br/><br/>
+	<a href="/CasaCentralWeb/index.html">Volver</a>
 </body>
 </html>

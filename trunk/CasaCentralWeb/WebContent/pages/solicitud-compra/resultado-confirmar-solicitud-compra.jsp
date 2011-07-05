@@ -8,5 +8,7 @@
 </head>
 <body>
 Las solicitudes de compra fueron confirmadas
+<br/><br/>
+	<a href="/CasaCentralWeb/index.html">Volver</a>
 </body>
 </html>

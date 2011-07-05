@@ -28,5 +28,7 @@
 	<%}%>
 	</table>
 <br/>
+<br/><br/>
+	<a href="/CasaCentralWeb/index.html">Volver</a>
 </body>
 </html>
