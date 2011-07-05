@@ -1,5 +1,6 @@
 package xml;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
@@ -34,7 +35,7 @@ public class ListaPrecioLoader {
 		return l;
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		ListaPreciosDAO lpDao = new ListaPreciosDAOImpl();
 		// Main de prueba para ver si levanta bien el xml
 		String archivo = "xml/listaDePrecios.xml";
@@ -57,10 +58,10 @@ public class ListaPrecioLoader {
 			
 			e.printStackTrace();
 		} 
-	}
+	}*/
 	
 	@SuppressWarnings("deprecation")//levanta las listas del xml!!!!!
-	public Set<ListaPrecios> readXML(String xml) throws SAXException, IOException, ParserConfigurationException{
+	public Set<ListaPrecios> readXML(File xml) throws SAXException, IOException, ParserConfigurationException{
 		Set<ListaPrecios> listados = new HashSet<ListaPrecios>();
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
