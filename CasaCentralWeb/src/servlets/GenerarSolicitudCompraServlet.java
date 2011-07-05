@@ -2,12 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
-import modelo.Cliente;
-import modelo.Item;
-import modelo.SolicitudCompra;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Cliente;
+import modelo.Item;
+import modelo.SolicitudCompra;
 import service.ClienteService;
 import service.ItemService;
 import service.SolicitudCompraService;
@@ -25,13 +23,14 @@ import service.impl.SolicitudCompraServiceImpl;
 /**
  * Servlet implementation class GenerarSolicitudCompraServlet
  */
-public class GenerarSolicitudCompraServlet2 extends HttpServlet {
+public class GenerarSolicitudCompraServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GenerarSolicitudCompraServlet2() {
+    public GenerarSolicitudCompraServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -65,5 +64,6 @@ public class GenerarSolicitudCompraServlet2 extends HttpServlet {
 		rd.forward(request, response);
 	
 	}
+
 
 }
