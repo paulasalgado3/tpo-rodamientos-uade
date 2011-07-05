@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,32 +12,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.ListaPrecios;
+
+import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
+
+import service.ListaDesdeXMLService;
 
 import xml.ListaPrecioLoader;
 
 /**
- * Servlet implementation class LevantarXMLServlet
+ * Servlet implementation class XMLServlet
  */
-public class LevantarXMLServlet extends HttpServlet {
+public class XMLServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LevantarXMLServlet() {
+    public XMLServlet() {
         super();
-        
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+	protected void doGet(HttpServletRequest r, HttpServletResponse re) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(r,re);
 	}
 
 	/**
@@ -75,18 +81,20 @@ public class LevantarXMLServlet extends HttpServlet {
 			Iterator it = items.iterator();
 			while(it.hasNext()){
 				try {
-				FileItem item = (FileItem)it.next();
+				DiskFileItem item = (DiskFileItem)it.next();
 				if(item.getName()!=null){
-				buscar = item.getName();
-				System.out.println("Leido: "+buscar);
-				File file = new File(buscar);
-				System.out.println(destino+file.getName());
-				file = new File(destino + file.getName());
-				//con esto lo guardo al disco.. pero yo no lo quiero guardar en el disco, por eso, lo comento.
-				//item.write(file);
-				ListaPrecioLoader.getInstance().readXML(file);
-				request.setAttribute("file", file);
-				request.setAttribute("arch", file.toString());
+					buscar = item.getName();
+					System.out.println("Leido: "+buscar);
+					File file = new File(buscar);
+					System.out.println(destino+file.getName());
+					file = new File(destino + file.getName());
+					//con esto lo guardo al disco.. pero yo no lo quiero guardar en el disco, por eso, lo comento.
+					//item.write(file);
+					ListaDesdeXMLService lpl = ListaPrecioLoader.getInstance();
+					System.out.println("lpl"+lpl);
+					Set<ListaPrecios> lst = lpl.readXML(file);
+					request.setAttribute("file", file);
+					request.setAttribute("arch", file.getTotalSpace());
 					}
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -96,7 +104,7 @@ public class LevantarXMLServlet extends HttpServlet {
 		}
 		
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/mostrarXML.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/levantarXML/mostrarXML.jsp");
 		requestDispatcher.forward(request, response);
 		
 	}

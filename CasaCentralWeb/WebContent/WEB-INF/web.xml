@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>CasaCentralWeb</display-name>
   <welcome-file-list>
-    <welcome-file>/pages/solicitud-compra/inicio-confirmar-solicitud-compra.jsp</welcome-file>
+    <welcome-file>/index.html</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -53,5 +53,16 @@
   <servlet-mapping>
     <servlet-name>ConfirmarServlet</servlet-name>
     <url-pattern>/ConfirmarServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XMLServlet</display-name>
+    <servlet-name>XMLServlet</servlet-name>
+    <servlet-class>servlets.XMLServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XMLServlet</servlet-name>
+    <url-pattern>/XMLServlet</url-pattern>
+ 
   </servlet-mapping>
 </web-app>

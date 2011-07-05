@@ -3,6 +3,7 @@
 	<name>CasaCentralWeb</name>
 	<comment></comment>
 	<projects>
+		<project>CasaCentral</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

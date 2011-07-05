@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1 align="left">Lista de precio cargada satisfactoriamente</h1>
-	Archivo: ${file.name }
-	Contenido: ${arch }
+	Archivo: ${file.name }<br/>
+	Tamaño: ${arch }
 </body>
 </html>
