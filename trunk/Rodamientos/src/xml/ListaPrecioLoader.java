@@ -21,7 +21,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import service.ListaDesdeXMLService;
-
+import dao.ListaPreciosDAO;
+import dao.impl.ListaPreciosDAOImpl;
 import dao.impl.ProveedorDAOImpl;
 import dao.impl.RodamientoDAOImpl;
 
@@ -123,6 +124,23 @@ public class ListaPrecioLoader implements ListaDesdeXMLService{
 			//System.out.println("......");
 		}
 		return listados;
+	}
+
+	@Override
+	public void loadXML(File file) {
+		try {
+			ListaPreciosDAO lpDAO = new ListaPreciosDAOImpl();
+			Set<ListaPrecios> set = ListaPrecioLoader.getInstance().readXML(file);
+			for(ListaPrecios lp : set){
+				
+				lpDAO.save(lp);
+			}
+	
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		} 
+		
 	}
 
 
