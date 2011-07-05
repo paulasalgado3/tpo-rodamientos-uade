@@ -16,7 +16,7 @@
 	<%ItemService itemServiceImpl = new ItemServiceImpl(); 
 	
 	List<Item> items = itemServiceImpl.findAll();%>
-	<form action="../../GenerarSolicitudCompraServlet2" method="post">
+	<form action="../../GenerarSolicitudCompraServlet" method="post">
 	DNI:<Input type="text" name="dni"><br>
 		<table>
 			<%for(Item i: items){%>

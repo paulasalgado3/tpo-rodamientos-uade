@@ -63,6 +63,15 @@
   <servlet-mapping>
     <servlet-name>XMLServlet</servlet-name>
     <url-pattern>/XMLServlet</url-pattern>
- 
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GenerarSolicitudCompraServlet</display-name>
+    <servlet-name>GenerarSolicitudCompraServlet</servlet-name>
+    <servlet-class>servlets.GenerarSolicitudCompraServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GenerarSolicitudCompraServlet</servlet-name>
+    <url-pattern>/GenerarSolicitudCompraServlet</url-pattern>
   </servlet-mapping>
 </web-app>
