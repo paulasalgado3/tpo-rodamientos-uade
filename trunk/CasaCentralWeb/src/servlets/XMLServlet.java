@@ -86,18 +86,27 @@ public class XMLServlet extends HttpServlet {
 					buscar = item.getName();
 					System.out.println("Leido: "+buscar);
 					File file = new File(buscar);
-					
+					String todoBien = "La importación se produjo con errores o no se produjo.";
 					file = new File(destino+file.getName());
 					//con esto lo guardo al disco.. pero yo no lo quiero guardar en el disco, por eso, lo comento.
 					item.write(file);
 					ListaDesdeXMLService lpl = ListaPrecioLoader.getInstance();
-					System.out.println("lpl"+lpl);
+					
 					lpl.loadXML(file);
 					
+					Boolean todoOk = file!=null;
+					
+					if(todoOk)
+						todoBien = "La importación se realizó de manera exitosa.";
+					request.setAttribute("todoOk", todoBien);
 					request.setAttribute("file", file);
-					request.setAttribute("arch", file.getTotalSpace());
+					Double arch = dosDecimales((double)(file.length()/1024.0));
+					request.setAttribute("arch", arch);
+					if(todoOk){
+						file.delete();
 					}
-				} catch (Exception e) {
+				}
+			} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -108,6 +117,13 @@ public class XMLServlet extends HttpServlet {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/levantarXML/mostrarXML.jsp");
 		requestDispatcher.forward(request, response);
 		
+	}
+
+	private Double dosDecimales(double l) {
+		double d = l*100.0;
+		int i =  (int)d ;
+		
+		return i/100.0;
 	}
 
 }

@@ -9,6 +9,9 @@
 <body>
 <h1 align="left">Lista de precio cargada satisfactoriamente</h1>
 	Archivo: ${file.name }<br/>
-	Tamaño: ${arch }
+	Tamaño: ${arch } KB<br/>
+	Estado: ${todoOk }<br/><br/>
+	<a href="/CasaCentralWeb/index.html">Volver</a>
+	
 </body>
 </html>
