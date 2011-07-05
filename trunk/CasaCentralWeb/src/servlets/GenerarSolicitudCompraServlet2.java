@@ -25,13 +25,13 @@ import service.impl.SolicitudCompraServiceImpl;
 /**
  * Servlet implementation class GenerarSolicitudCompraServlet
  */
-public class GenerarSolicitudCompraServlet extends HttpServlet {
+public class GenerarSolicitudCompraServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GenerarSolicitudCompraServlet() {
+    public GenerarSolicitudCompraServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
