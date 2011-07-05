@@ -12,4 +12,6 @@ import modelo.ListaPrecios;
 
 public interface ListaDesdeXMLService {
 	public Set<ListaPrecios> readXML(File f) throws SAXException, IOException, ParserConfigurationException;
+
+	public void loadXML(File file);
 }
