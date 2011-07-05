@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Importar lista de precios</title>
 </head>
 <body>
 <h3>Por favor, indique el archivo XML fuente para cargar las listas de precios:</h3>
