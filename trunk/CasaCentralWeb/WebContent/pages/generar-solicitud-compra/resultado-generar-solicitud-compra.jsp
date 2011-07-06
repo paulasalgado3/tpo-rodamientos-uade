@@ -15,8 +15,8 @@
 	<%for(SolicitudCompra i : solicitudes){ %>
 		<tr>		
 			<td>
-			<%="Cliente: " + i.getCli()+ " Cotizacion Asociada: " + i.getId_cotizacion()%>
-				<td>
+			<%="Id Solicitud de Compra:" + i.getId_cotizacion()+"Cliente: " + i.getCli().getApellido()+""+i.getCli().getNombre()+ " Cotizacion Asociada: " + i.getId_cotizacion()%>
+				<br/><td>
 				Items Comprados:<br/>
 				<% for(Item ii: i.getItems()){%>
 				<%="Rodamiento: " + ii.getRodamiento().getCodigo()+ " Cantidad:"+ ii.getCantidad()%>
