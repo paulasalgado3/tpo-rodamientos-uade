@@ -17,6 +17,7 @@
 	
 	List<Item> items = itemServiceImpl.findAll();%>
 	<form action="../../GenerarSolicitudCompraServlet" method="post">
+	<h1>Ingrese los datos para generar una solicitud de pedido</h1>
 	DNI:<Input type="text" name="dni"><br>
 		<table>
 			<%for(Item i: items){%>
