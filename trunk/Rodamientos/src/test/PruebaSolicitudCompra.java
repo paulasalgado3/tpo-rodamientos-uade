@@ -1,5 +1,6 @@
 package test;
 
+import java.rmi.RemoteException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +17,9 @@ public class PruebaSolicitudCompra {
 
 	/**
 	 * @param args
+	 * @throws RemoteException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException {
 		SolicitudCompraDAO solicitudCompraDAO = new SolicitudCompraDAOImpl();
 		ClienteDAOImpl cDAO = new ClienteDAOImpl();
 		ItemDAOImpl iDAO = new ItemDAOImpl();

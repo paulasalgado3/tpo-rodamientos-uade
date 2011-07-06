@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,12 +19,16 @@ import dao.impl.CotizacionDAOImpl;
 import dao.impl.SolicitudCompraDAOImpl;
 import service.SolicitudCompraService;
 
-public class SolicitudCompraServiceImpl implements SolicitudCompraService{
+public class SolicitudCompraServiceImpl extends UnicastRemoteObject implements SolicitudCompraService{
+	public SolicitudCompraServiceImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	SolicitudCompraDAO sDAO = new SolicitudCompraDAOImpl();
 	
 	CotizacionDAO cDAO = new CotizacionDAOImpl();
-	public void generarSolicitudCompra(Set<Item> items, Cliente cli){
-		Set<Item> itemsNoCotizados = new HashSet<Item>();
+	public void generarSolicitudCompra(Set<Item> items, Cliente cli) throws RemoteException{
+		Set<Item> itemsNoCotizados = new HashSet<Item>() ;
 		/*genero un set de solicitudes de compra ya que si hay items cotizados y 
 		 * sin cotizar ya son dos solicitudes, y si hay items de mas de una cotizacion es una solicitud por cada cotizacion
 		 * */
@@ -57,9 +63,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		/*me quedan dos listas itemsCotizados(con el item y si cotizacion correspondiente) e items no cotizados*/
 		/*con los items no cotizados genero una cotizacion*/
 		if(!items.isEmpty()){
-			//CotizacionServiceImpl csi = new CotizacionServiceImpl();
-			//csi.generarCotizacion(cli.getDni(),items);
-			//COMENTADO PORQUE EL METODO DE GENERAR COTIZACION NO ESTA
+			//no genera una cotizacion
 		
 		
 		}
@@ -112,7 +116,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		
 	}
 	
-	public Set<SolicitudCompra> generarSolicitudCompraSet(Set<Item> items, Cliente cli){
+	public Set<SolicitudCompra> generarSolicitudCompraSet(Set<Item> items, Cliente cli) throws RemoteException{
 		Set<Item> itemsNoCotizados = new HashSet<Item>();
 		/*genero un set de solicitudes de compra ya que si hay items cotizados y 
 		 * sin cotizar ya son dos solicitudes, y si hay items de mas de una cotizacion es una solicitud por cada cotizacion
@@ -148,9 +152,7 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		/*me quedan dos listas itemsCotizados(con el item y si cotizacion correspondiente) e items no cotizados*/
 		/*con los items no cotizados genero una cotizacion*/
 		if(!items.isEmpty()){
-			//CotizacionServiceImpl csi = new CotizacionServiceImpl();
-			//csi.generarCotizacion(cli.getDni(),items);
-			//COMENTADO PORQUE EL METODO DE GENERAR COTIZACION NO ESTA
+			//no genera una cotizacion
 		
 		
 		}
@@ -203,19 +205,19 @@ public class SolicitudCompraServiceImpl implements SolicitudCompraService{
 		return solicitudes;
 		
 	}
-	public void confirmarSolicitudCompra(Integer idSolicitudCompra){
+	public void confirmarSolicitudCompra(Integer idSolicitudCompra) throws RemoteException{
 		
 		SolicitudCompra solicitudCompra = sDAO.findById(idSolicitudCompra);
 		solicitudCompra.setConfirmada(true);
 		sDAO.merge(solicitudCompra);
 		
 	}
-	public List<SolicitudCompra> findAll(){
+	public List<SolicitudCompra> findAll() throws RemoteException{
 		
 		return sDAO.findAll(SolicitudCompra.class);
 	}
 	@Override
-	public List<SolicitudCompra> obtenerNoConfirmadas(){
+	public List<SolicitudCompra> obtenerNoConfirmadas() throws RemoteException{
 		return sDAO.obtenerNoConfirmadas();
 	}
 }
