@@ -11,19 +11,22 @@
 </head>
 <body>
 	<%Set<SolicitudCompra> solicitudes = (Set<SolicitudCompra>)request.getAttribute("solicitudes"); %>
-	<table>
-	<%for(SolicitudCompra i : solicitudes){ %>
-		<tr>		
-			<td>
-			<%="Id Solicitud de Compra:" + i.getId_cotizacion()+"Cliente: " + i.getCli().getApellido()+""+i.getCli().getNombre()+ " Cotizacion Asociada: " + i.getId_cotizacion()%>
-				<br/><td>
-				Items Comprados:<br/>
+	<table border="1" summary="Solicitudes de compra">
+	<tr> <td> Solicitud de Compra </td> <td> Items </td>
+	</tr>
+	<%for(SolicitudCompra i : solicitudes){ 
+	Integer filas=i.getItems().size();
+	%>
+		
+		<tr>
+		<td>
+			<%="Id Solicitud de Compra:" + i.getId_cotizacion()+" Cliente: " + i.getCli().getApellido()+""+i.getCli().getNombre()+ " Cotizacion Asociada: " + i.getId_cotizacion()%>
+			</td>
+				<td>
 				<% for(Item ii: i.getItems()){%>
 				<%="Rodamiento: " + ii.getRodamiento().getCodigo()+ " Cantidad:"+ ii.getCantidad()%>
 				<%}%>
-	
-				</td>		
-			</td>
+				</td>
 		</tr>
 	<%}%>
 	</table>
